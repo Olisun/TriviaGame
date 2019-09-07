@@ -1,53 +1,112 @@
 $(document).ready(function() {
-
-  var firstGreeting = 'Hello World'
-  var secondGreeting = 'How are you doing today?'
-  var thirdGreeting = 'What a beautiful day it is!'
-  var counter = 10;
-  var gameOver = 'GAME OVER';
-  var score = 0;
+  $('#start-game').on('click', start);
 
 
-  // Function to append 3 strings to the DOM in sequential order
+  var timeRemaining = 12;
+  var correctAnswers = 0;
+  var incorrectAnswers = 0;
+  var gameOver = 'GAME OVER'
+  var isGameOver = false;
 
-  // function helloWord() {
-  //   setTimeout(function() {
-  //     $('#test1').append(firstGreeting)
-  //   }, 1000 * 1)
-
-  //   setTimeout(function() {
-  //     $('#test1').text('');
-  //   }, 1000 * 2)
-
-  //   setTimeout(function() {
-  //     $('#test1').append(secondGreeting)
-  //   }, 1000 * 3)
-
-  //   setTimeout(function() {
-  //     $('#test1').text('');
-  //   }, 1000 * 4)
-
-  //   setTimeout(function() {
-  //     $('#test1').append(thirdGreeting)
-  //   }, 1000 * 5)
-  // }
-
-  // helloWord();
-
-  // Count down timer
-
-  function countDown() {
+  function start() {
     var wiggly = setInterval(function() {
-      $('#test2').text(counter)
-      counter--
-      if (counter === 0) {
+      var converted = timeConverter(timeRemaining);
+      $('#countdown-clock').text(timeRemaining)
+      timeRemaining--
+      $("countdown-clock").text(converted);
+      if (timeRemaining === 0) {
         clearInterval(wiggly)
-        $('#test2').text(gameOver)
+        timeRemaining = 12;
+        $('#countdown-clock').text(gameOver);
       }
     }, 1000 * 1)
   }
 
-  countDown();
+  // $('#start-game').on('click', function() {
+  //   count();
+  //   timeConverter();
+  //   var wiggly = setInterval(function() {
+  //     $('#countdown-clock').text(timeRemaining)
+  //     timeRemaining--
+  //     if (timeRemaining === 0) {
+  //       clearInterval(wiggly)
+  //       timeRemaining = 12;
+  //       $('#countdown-clock').text(gameOver);
+  //     }
+  //   }, 1000 * 1)
+  // })
+
+
+
+  function timeConverter(t) {
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    if (minutes === 0) {
+      minutes = "00";
+    } else if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    return minutes + ":" + seconds;
+  }
+
+  function startQuiz() {
+
+    $("input[value='earth']").click(function() {
+      var radioValue = $("input[value='earth']:checked").val();
+      if (radioValue) {
+        alert('Earth radio checked')
+          // incorrectAnswers = 0;
+        incorrectAnswers++;
+        $('#incorrect-answers').text(incorrectAnswers);
+        $("input[value='earth']").off()
+      }
+    });
+
+    $("input[value='asgard']").click(function() {
+      var radioValue = $("input[value='asgard']:checked").val();
+      if (radioValue) {
+        alert('Asgard radio checked')
+          // correctAnswers = 0;
+        correctAnswers++;
+        $('#correct-answers').text(correctAnswers);
+        $("input[value='asgard']").off()
+      }
+    });
+
+    $("input[value='five']").click(function() {
+      var radioValue = $("input[value='five']:checked").val();
+      if (radioValue) {
+        alert('5-stones radio checked')
+          // incorrectAnswers = 0;
+        incorrectAnswers++;
+        $('#incorrect-answers').text(incorrectAnswers);
+        $("input[value='five']").off()
+      }
+    });
+
+    $("input[value='six']").click(function() {
+      var radioValue = $("input[value='six']:checked").val();
+      if (radioValue) {
+        alert('6-stones radio checked')
+          // correctAnswers = 0;
+        correctAnswers++;
+        $('#correct-answers').text(correctAnswers);
+        $("input[value='six']").off()
+      }
+    });
+
+
+  }
+
+  // startTimer();
+  // countDown();
+  startQuiz();
+  count();
+  timeConverter();
+
 
 
 });

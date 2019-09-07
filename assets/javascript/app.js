@@ -1,34 +1,45 @@
 $(document).ready(function() {
-  var counter = 12;
+  var timeRemaining = 12;
   var correctAnswers = 0;
   var incorrectAnswers = 0;
   var gameOver = 'GAME OVER'
   var isGameOver = false;
 
   $('#start-game').on('click', function() {
+    count();
+    timeConverter();
     var wiggly = setInterval(function() {
-      $('#countdown-clock').text(counter)
-      counter--
-      if (counter === 0) {
+      $('#countdown-clock').text(timeRemaining)
+      timeRemaining--
+      if (timeRemaining === 0) {
         clearInterval(wiggly)
-        counter = 12;
+        timeRemaining = 12;
         $('#countdown-clock').text(gameOver);
       }
     }, 1000 * 1)
   })
 
-  // function countDown() {
-  //   var wiggly = setInterval(function() {
-  //     $('#countdown-clock').text(counter)
-  //     counter--
-  //     if (counter === 0) {
-  //       clearInterval(wiggly)
-  //       $('#countdown-clock').text(gameOver);
-  //     }
-  //   }, 1000 * 1)
-  // }
+  function count() {
+    timeRemaining--;
+    var converted = timeConverter(timeRemaining);
+    $("countdown-clock").text(converted);
+  }
 
-  function startQiuz() {
+  function timeConverter(t) {
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    if (minutes === 0) {
+      minutes = "00";
+    } else if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    return minutes + ":" + seconds;
+  }
+
+  function startQuiz() {
 
     $("input[value='earth']").click(function() {
       var radioValue = $("input[value='earth']:checked").val();
@@ -79,7 +90,9 @@ $(document).ready(function() {
 
   // startTimer();
   // countDown();
-  startQiuz();
+  startQuiz();
+  count();
+  timeConverter();
 
 
 
