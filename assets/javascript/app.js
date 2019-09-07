@@ -1,9 +1,32 @@
 $(document).ready(function() {
-
+  var counter = 12;
   var correctAnswers = 0;
   var incorrectAnswers = 0;
+  var gameOver = 'GAME OVER'
   var isGameOver = false;
 
+  $('#start-game').on('click', function() {
+    var wiggly = setInterval(function() {
+      $('#countdown-clock').text(counter)
+      counter--
+      if (counter === 0) {
+        clearInterval(wiggly)
+        counter = 12;
+        $('#countdown-clock').text(gameOver);
+      }
+    }, 1000 * 1)
+  })
+
+  // function countDown() {
+  //   var wiggly = setInterval(function() {
+  //     $('#countdown-clock').text(counter)
+  //     counter--
+  //     if (counter === 0) {
+  //       clearInterval(wiggly)
+  //       $('#countdown-clock').text(gameOver);
+  //     }
+  //   }, 1000 * 1)
+  // }
 
   function startQiuz() {
 
@@ -54,6 +77,8 @@ $(document).ready(function() {
 
   }
 
+  // startTimer();
+  // countDown();
   startQiuz();
 
 
