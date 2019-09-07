@@ -1,7 +1,8 @@
 $(document).ready(function() {
   $('#start-game').on('click', start);
+  $('#done').on('click', done);
 
-
+  var wiggly;
   var timeRemaining = 132;
   var correctAnswers = 0;
   var incorrectAnswers = 0;
@@ -25,8 +26,8 @@ $(document).ready(function() {
   }
 
   function start() {
-    $('.radio-buttons, .score-board').css("display", "inline")
-    var wiggly = setInterval(function() {
+    $('.radio-buttons').css("display", "inline");
+    wiggly = setInterval(function() {
       var converted = timeConverter(timeRemaining);
       $('#countdown-clock').text(converted)
       timeRemaining--;
@@ -36,6 +37,11 @@ $(document).ready(function() {
         $('#countdown-clock').text(gameOver);
       }
     }, 1000 * 1)
+  }
+
+  function done() {
+    $('.score-board').css("display", "inline");
+    clearInterval(wiggly);
   }
 
   function startQuiz() {
@@ -77,13 +83,11 @@ $(document).ready(function() {
     });
 
 
+
   }
 
-  // startTimer();
-  // countDown();
   startQuiz();
-  count();
-  timeConverter();
+
 
 
 
