@@ -1,61 +1,63 @@
 $(document).ready(function() {
 
-  var counter = 0;
   var correctAnswers;
   var incorectAnswers;
   var isGameOver = false;
-  var nebulaBtn = $('#nebula-btn')
 
-  function startQuiz() {
 
-    $('#asgard-btn').click(function(event) {
-      if (this.id === 'asgard-btn') {
-        correctAnswers = 0;
-        correctAnswers++;
-        $('#correct-answers').text(correctAnswers);
-        $(this).css("background-color", "red");
-        $(this).css("height", "15px");
-        $(this).off(event);
-        nebulaBtn.css("background-color", "none");
-      }
-    });
+  // function startQuiz() {
 
-    $('#nebula-btn').click(function(event) {
-      if (this.id === 'nebula-btn') {
-        incorrectAnswers = 0;
-        incorrectAnswers++;
-        $('#incorrect-answers').text(incorrectAnswers);
-        $(this).css("background-color", "red");
-        $(this).css("height", "15px");
-        $(this).off(event);
-      }
-    });
-  }
-
-  // function incorrect() {
-
-  //   $('#asgard-btn').on('click', function(event) {
-  //     correctAnswers++;
-  //     $('#correct-answers').text(correctAnswers);
-  //     $(this).css("background-color", "red");
-  //     $(this).css("height", "15px");
-  //     $(this).off(event);
+  //   $('#asgard-btn').click(function(event) {
+  //     if (this.id === 'asgard-btn') {
+  //       correctAnswers = 0;
+  //       correctAnswers++;
+  //       $('#correct-answers').text(correctAnswers);
+  //       $(this).css("background-color", "red");
+  //       $(this).css("height", "15px");
+  //       $(this).off(event);
+  //       nebulaBtn.css("background-color", "none");
+  //     }
   //   });
 
-  //   $('#rolling-stones-btn').on('click', function(event) {
-  //     correctAnswers++;
-  //     $('#correct-answers').text(correctAnswers);
-  //     $(this).off(event);
-  //     $(this).css("background-color", "red");
-  //     $(this).css("height", "15px");
+  //   $('#nebula-btn').click(function(event) {
+  //     if (this.id === 'nebula-btn') {
+  //       incorrectAnswers = 0;
+  //       incorrectAnswers++;
+  //       $('#incorrect-answers').text(incorrectAnswers);
+  //       $(this).css("background-color", "red");
+  //       $(this).css("height", "15px");
+  //       $(this).off(event);
+  //     }
   //   });
   // }
-  // function keepScore() {
 
-  // }
+  $("input[value='earth']").click(function() {
+    var radioValue = $("input[value='earth']:checked").val();
+    if (radioValue) {
+      alert('Earth radio checked')
+      correctAnswers = 0;
+      correctAnswers++;
+      $('#correct-answers').text(correctAnswers);
+      $("input[value='earth']").off()
+    }
+  });
 
-  startQuiz();
+  $("input[value='asgard']").click(function() {
+    var radioValue = $("input[value='asgard']:checked").val();
+    if (radioValue) {
+      alert('Asgard radio checked')
+      incorrectAnswers = 0;
+      incorrectAnswers++;
+      $('#incorrect-answers').text(incorrectAnswers);
+      $("input[value='asgard']").off()
+    }
+  });
 
-
+  // $("#earth").click(function() {
+  //   var value = $("input[value='earth']:checked").val();
+  //   alert(val);
+  // });
 
 });
+
+// startQuiz();
