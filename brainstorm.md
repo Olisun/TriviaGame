@@ -22,7 +22,8 @@
      1.  var counter;
      2.  var correctAnswers;
      3.  var incorrectAnswers;
-     4.  
+
+  10. Convert countdown to min/sec.
 
 ## Topics to review:
   1. Bootstrap

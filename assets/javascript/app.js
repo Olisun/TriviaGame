@@ -1,46 +1,27 @@
-var firstGreeting = 'Hello World'
-var secondGreeting = 'How are you doing today?'
-var thirdGreeting = 'What a beautiful day it is!'
-var counter = 10;
-var gameOver = 'GAME OVER';
+$(document).ready(function() {
 
-// Function to append 3 strings to the DOM in sequential order
+  var counter = 0;
+  var correctAnswers = 0;
+  var incorectAnswers = 0;
+  var isGameOver = false;
 
-// function helloWord() {
-//   setTimeout(function() {
-//     $('#test1').append(firstGreeting)
-//   }, 1000 * 1)
+  function startQuiz() {
+    $('#asgard-btn').on('click', function(event) {
+      correctAnswers++;
+      $('#correct-answers').text(correctAnswers);
+      $(this).off(event);
 
-//   setTimeout(function() {
-//     $('#test1').text('');
-//   }, 1000 * 2)
+    });
 
-//   setTimeout(function() {
-//     $('#test1').append(secondGreeting)
-//   }, 1000 * 3)
 
-//   setTimeout(function() {
-//     $('#test1').text('');
-//   }, 1000 * 4)
+  }
 
-//   setTimeout(function() {
-//     $('#test1').append(thirdGreeting)
-//   }, 1000 * 5)
-// }
+  // function keepScore() {
 
-// helloWord();
+  // }
 
-// Count down timer
+  startQuiz();
 
-function countDown() {
-  var wiggly = setInterval(function() {
-    $('#test2').text(counter)
-    counter--
-    if (counter === 0) {
-      clearInterval(wiggly)
-      $('#test2').text(gameOver)
-    }
-  }, 1000 * 1)
-}
 
-countDown();
+
+});
