@@ -12,10 +12,20 @@ body {
 
 .questions {
   text-align: center;
-  color: white;
+  color: yellow;
 }
 
 .score-board {
   text-align: center;
-  color: white;
+  color: red;
+  font-size: 36px;
+}
+
+#number-correct {}
+
+#correct-answers {}
+
+.radio-buttons {
+  text-align: center;
+  color: yellow;
 }
