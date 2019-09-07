@@ -2,39 +2,11 @@ $(document).ready(function() {
   $('#start-game').on('click', start);
 
 
-  var timeRemaining = 12;
+  var timeRemaining = 132;
   var correctAnswers = 0;
   var incorrectAnswers = 0;
   var gameOver = 'GAME OVER'
   var isGameOver = false;
-
-  function start() {
-    var wiggly = setInterval(function() {
-      var converted = timeConverter(timeRemaining);
-      $('#countdown-clock').text(timeRemaining)
-      timeRemaining--
-      $("countdown-clock").text(converted);
-      if (timeRemaining === 0) {
-        clearInterval(wiggly)
-        timeRemaining = 12;
-        $('#countdown-clock').text(gameOver);
-      }
-    }, 1000 * 1)
-  }
-
-  // $('#start-game').on('click', function() {
-  //   count();
-  //   timeConverter();
-  //   var wiggly = setInterval(function() {
-  //     $('#countdown-clock').text(timeRemaining)
-  //     timeRemaining--
-  //     if (timeRemaining === 0) {
-  //       clearInterval(wiggly)
-  //       timeRemaining = 12;
-  //       $('#countdown-clock').text(gameOver);
-  //     }
-  //   }, 1000 * 1)
-  // })
 
 
 
@@ -51,6 +23,23 @@ $(document).ready(function() {
     }
     return minutes + ":" + seconds;
   }
+
+  function start() {
+    var wiggly = setInterval(function() {
+      var converted = timeConverter(timeRemaining);
+      $('#countdown-clock').text(converted)
+      timeRemaining--;
+      if (timeRemaining === 0) {
+        clearInterval(wiggly)
+        timeRemaining = 132;
+        $('#countdown-clock').text(gameOver);
+      }
+    }, 1000 * 1)
+  }
+
+
+
+
 
   function startQuiz() {
 
