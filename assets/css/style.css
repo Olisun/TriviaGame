@@ -10,32 +10,40 @@ body {
   text-align: center;
 }
 
+header {
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  position: fixed;
+}
+
 .countdown-container {
-  /* grid-area: 1 / 1 / 2 / 2; */
   border: 1px solid red;
+  position: fixed;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* padding: 20px; */
 }
 
 form {
-  margin-top: 0px;
+  margin-top: 120px;
 }
 
 .radio-buttons {
-  margin-top: 0px;
+  margin-top: 110px;
   margin-bottom: 0px;
   padding: 0px;
 }
 
 .score-board {
-  /* grid-area: 3 / 1 / 4 / 2; */
   border: 1px solid red;
 }
 
 #countdown-container {
-  display: flex;
+  display: block;
 }
 
 #time-remaining {
-  flex: 1;
   text-align: center;
   color: red;
   font-size: 36px;
@@ -81,6 +89,14 @@ form {
   display: none;
 }
 
-.start-done-buttons {
+footer {
   text-align: center;
+  width: 100%;
+}
+
+.start-done-buttons {
+  margin: auto;
+  align-items: center;
+  position: fixed;
+  margin-top: 200px;
 }
