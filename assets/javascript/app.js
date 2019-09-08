@@ -97,3 +97,19 @@ $(document).ready(function() {
 
 
 });
+
+function myEvent_On() {
+  $('.hide').on('click', function() {
+    $('#main').animate({ height: 0 }, 400);
+    $(this).off('click');
+
+  });
+}
+
+myEvent_On();
+$('.show').on('click', function() {
+  $('#main').animate({ height: '200px' }, 400);
+  myEvent_On();
+});
+
+// radioButtonReset.prop("checked", false)

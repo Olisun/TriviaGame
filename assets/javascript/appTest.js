@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  $('#start-game').on('click', start);
-  $('#done').on('click', done);
-
   var wiggly;
   var timeRemaining = 12;
   var correctAnswers = 0;
@@ -9,6 +6,14 @@ $(document).ready(function() {
   var unAnswered = 0;
   var gameOver = 'GAME OVER'
   var isGameOver = false;
+  var radioButtonReset = $("input[type='radio']");
+  var answerEarth = $("input[value='earth']");
+  var answerAsgard = $("input[value='asgard']");
+  var answerFive = $("input[value='five']");
+  var answerSix = $("input[value='six']");
+
+  $('#start-game').on('click', start);
+  $('#done').on('click', done);
 
   function timeConverter(t) {
     var minutes = Math.floor(t / 60);
@@ -27,9 +32,7 @@ $(document).ready(function() {
   function start() {
     $('.radio-buttons').css("display", "inline");
     $('.score-board').css("display", "none");
-    correctAnswers = 0;
-    incorrectAnswers = 0;
-    timeRemaining = 12;
+    radioButtonReset.prop("checked", false);
     startQuiz();
     wiggly = setInterval(function() {
       var converted = timeConverter(timeRemaining);
@@ -41,61 +44,59 @@ $(document).ready(function() {
         timeRemaining = 12;
         $('#countdown-clock').text(gameOver);
       }
-    }, 1000 * 1)
+    }, 1000)
   }
+
+  function startQuiz() {
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    timeRemaining = 12;
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#correct-answers').text(correctAnswers);
+
+    answerEarth.on('click', earth);
+    answerAsgard.on('click', asgard);
+    answerFive.on('click', five);
+    answerSix.on('click', six);
+  }
+
+  function earth() {
+    var radioValue = answerEarth.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerEarth.off();
+    }
+  };
+
+  function asgard() {
+    var radioValue = answerAsgard.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerAsgard.off();
+    }
+  };
+
+  function five() {
+    var radioValue = answerFive.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerFive.off();
+    }
+  };
+
+  function six() {
+    var radioValue = answerSix.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerSix.off();
+    }
+  };
 
   function done() {
     $('.radio-buttons').css("display", "none");
     $('.score-board').css("display", "inline");
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
-
     clearInterval(wiggly);
   }
-
-  function startQuiz() {
-    $('#incorrect-answers').text(incorrectAnswers);
-    $('#correct-answers').text(correctAnswers);
-
-    $("input[value='earth']").click(function() {
-      var radioValue = $("input[value='earth']:checked").val();
-      if (radioValue) {
-        incorrectAnswers++;
-        $("input[value='earth']").off()
-      }
-    });
-
-    $("input[value='asgard']").click(function() {
-      var radioValue = $("input[value='asgard']:checked").val();
-      if (radioValue) {
-        correctAnswers++;
-        $("input[value='asgard']").off()
-      }
-    });
-
-    $("input[value='five']").click(function() {
-      var radioValue = $("input[value='five']:checked").val();
-      if (radioValue) {
-        incorrectAnswers++;
-        $("input[value='five']").off()
-      }
-    });
-
-    $("input[value='six']").click(function() {
-      var radioValue = $("input[value='six']:checked").val();
-      if (radioValue) {
-        correctAnswers++;
-        $("input[value='six']").off()
-      }
-    });
-
-
-
-  }
-
-
-
-
-
-
 });
