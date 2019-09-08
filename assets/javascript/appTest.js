@@ -7,6 +7,9 @@ $(document).ready(function() {
   var gameOver = 'GAME OVER'
   var isGameRunning = false;
   var radioButtonReset = $("input[type='radio']");
+  var scoreBoard = $('.score-board');
+  var timeClock = $('.timer-button-container');
+  var audio = $('#theme-music');
 
   var answerRyanG = $("input[value='ryan-gosling']");
   var answerSebastianS = $("input[value='sebastian-stan']");
@@ -38,6 +41,10 @@ $(document).ready(function() {
   var answerTruFive = $("input[value='truFive']");
   var answerFalsFive = $("input[value='falsFive']");
 
+  scoreBoard.css("display", "none");
+  timeClock.css("display", "none");
+  // audio.play();
+
   $('#start-game').on('click', start);
   $('#see-score').on('click', seeScore);
 
@@ -56,8 +63,6 @@ $(document).ready(function() {
   }
 
   function start() {
-    $('.radio-buttons').css("display", "inline");
-    $('.score-board').css("display", "none");
     radioButtonReset.prop("checked", false);
     isGameRunning = true;
     startQuiz();
@@ -70,9 +75,10 @@ $(document).ready(function() {
         clearInterval(wiggly)
         seeScore();
         timeRemaining = 12;
-        // $('.countdown-container').css("display", "none");
+        scoreBoard.css("display", "block");
+        timeClock.css("display", "none");
       }
-    }, 1000)
+    }, 1000 * 1)
   }
 
   function startOnlyOnce() {
@@ -85,6 +91,7 @@ $(document).ready(function() {
     correctAnswers = 0;
     incorrectAnswers = 0;
     timeRemaining = 12;
+    timeClock.css("display", "block");
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
 
@@ -297,12 +304,11 @@ $(document).ready(function() {
 
 
   function seeScore() {
-    $('.radio-buttons').css("display", "none");
-    $('.score-board').css("display", "block");
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
     isGameRunning = false;
-    // $('.countdown-container').css("display", "none");
+    scoreBoard.css("display", "block");
+    timeClock.css("display", "none");
     clearInterval(wiggly);
   }
 
