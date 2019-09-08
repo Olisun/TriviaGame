@@ -5,7 +5,7 @@ $(document).ready(function() {
   var incorrectAnswers = 0;
   var unAnswered = 0;
   var gameOver = 'GAME OVER'
-  var isGameOver = false;
+  var isGameRunning = false;
   var radioButtonReset = $("input[type='radio']");
   var answerEarth = $("input[value='earth']");
   var answerAsgard = $("input[value='asgard']");
@@ -13,11 +13,11 @@ $(document).ready(function() {
   var answerSix = $("input[value='six']");
 
   $('#start-game').on('click', start);
-  $('#done').on('click', done);
+  $('#see-score').on('click', seeScore);
 
-  function timeConverter(t) {
-    var minutes = Math.floor(t / 60);
-    var seconds = t - (minutes * 60);
+  function clockFormatter(numToConvert) {
+    var minutes = Math.floor(numToConvert / 60);
+    var seconds = numToConvert - (minutes * 60);
     if (seconds < 10) {
       seconds = "0" + seconds;
     }
@@ -33,18 +33,25 @@ $(document).ready(function() {
     $('.radio-buttons').css("display", "inline");
     $('.score-board').css("display", "none");
     radioButtonReset.prop("checked", false);
+    isGameRunning = true;
     startQuiz();
+    startOnlyOnce();
     wiggly = setInterval(function() {
-      var converted = timeConverter(timeRemaining);
+      var converted = clockFormatter(timeRemaining);
       $('#countdown-clock').text(converted)
       timeRemaining--;
       if (timeRemaining === 0) {
-        clearInterval(wiggly)
-        done();
+        gameOver()
         timeRemaining = 12;
         $('#countdown-clock').text(gameOver);
       }
     }, 1000)
+  }
+
+  function startOnlyOnce() {
+    if (isGameRunning = true) {
+      $('#start-game').off()
+    }
   }
 
   function startQuiz() {
@@ -92,11 +99,22 @@ $(document).ready(function() {
     }
   };
 
-  function done() {
+  function seeScore() {
     $('.radio-buttons').css("display", "none");
-    $('.score-board').css("display", "inline");
+    $('.score-board').css("display", "block");
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
+    isGameRunning = false;
+    $('#start-game').on('click', start);
+    clearInterval(wiggly);
+  }
+
+  function gameOver() {
+    $('.radio-buttons').css("display", "none");
+    $('.score-board').css("display", "block");
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#correct-answers').text(correctAnswers);
+    // isGameRunning = false;
     clearInterval(wiggly);
   }
 });
