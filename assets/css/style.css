@@ -8,28 +8,17 @@ body {
   text-align: center;
 }
 
-header {
-  width: 100%;
-  margin: auto;
-  align-items: right;
-  position: fixed;
-}
-
 .countdown-container {
   border: 1px solid red;
-  /* position: fixed; */
+  position: fixed;
+  margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 400px;
 }
 
 form {
-  margin-top: 120px;
-}
-
-.radio-buttons {
   margin-top: 10px;
-  margin-bottom: 0px;
-  padding: 0px;
 }
 
 #time-remaining {
@@ -38,8 +27,7 @@ form {
   margin: auto;
   font-size: 36px;
   width: 300px;
-  /* float: left; */
-  /* position: relative; */
+  position: relative;
   border: 1px solid red;
 }
 
@@ -50,7 +38,7 @@ form {
   width: 300px;
   margin: auto;
   /* float: right; */
-  /* position: relative; */
+  position: relative;
   border: 1px solid red;
 }
 
@@ -74,8 +62,11 @@ form {
   font-size: 36px;
   width: 400px;
   margin: auto;
+  margin-top: 200px;
+  margin-right: 100px;
   border: 1px solid red;
   display: none;
+  float: left;
 }
 
 .clearfix::after {
@@ -114,16 +105,4 @@ form {
 #unanswered {
   float: left;
   text-align: center;
-}
-
-footer {
-  text-align: center;
-  width: 100%;
-}
-
-.start-done-buttons {
-  margin: auto;
-  align-items: center;
-  position: fixed;
-  margin-top: 200px;
 }

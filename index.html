@@ -18,10 +18,27 @@
 
 <body>
 
-  <header class="countdown-container">
+  <div class="countdown-container">
     <div id="time-remaining">Time Remaining:</div>
     <div id="countdown-clock">00:00</div>
-  </header>
+    <button id="start-game">Start Quiz</button>
+    <button id="see-score">See Score</button>
+  </div>
+
+  <div class="score-board ">
+    <div class="clearfix ">
+      <div id="number-correct">Number Guess Right:</div>
+      <div id="correct-answers"></div>
+    </div>
+    <div class="clearfix ">
+      <div id="number-incorrect">Number Guess Wrong:</div>
+      <div id="incorrect-answers"></div>
+    </div>
+    <div class="clearfix ">
+      <div id="number-unanswered">Number Unanswered:</div>
+      <div id="unanswered"></div>
+    </div>
+  </div>
 
   <div class="radio-buttons">
     <form>
@@ -55,46 +72,24 @@
       <input type="radio" name="question6" value="truThree"> True<br>
       <input type="radio" name="question6" value="falsThree"> False<br>
       <br>
-      <p>What planet is Thor from?:</p>
-      <input type="radio" name="question7" value="earth"> Earth<br>
-      <input type="radio" name="question7" value="asgard"> Asgard<br>
-      <br>
       <p>True or false: Don Cheadle played War Machine in all the Marvel Movies going back to the original Iron Man (2008).</p>
-      <input type="radio" name="question8" value="truFour"> True<br>
-      <input type="radio" name="question8" value="falsFour"> False<br>
-      <br>
-      <p>What planet is Thor from?:</p>
-      <input type="radio" name="question9" value="earth"> Earth<br>
-      <input type="radio" name="question9" value="asgard"> Asgard<br>
+      <input type="radio" name="question7" value="truFour"> True<br>
+      <input type="radio" name="question7" value="falsFour"> False<br>
       <br>
       <p>True or false: Captain America's Shield is made out of Adamantium</p>
-      <input type="radio" name="question10" value="truFive"> True<br>
-      <input type="radio" name="question10" value=" falsFive"> False<br>
+      <input type="radio" name="question8" value="truFive"> True<br>
+      <input type="radio" name="question8" value=" falsFive"> False<br>
+      <br>
+
 
     </form>
   </div>
 
 
-  <div class="score-board ">
-    <div class="clearfix ">
-      <div id="number-correct">Number Guess Right:</div>
-      <div id="correct-answers"></div>
-    </div>
-    <div class="clearfix ">
-      <div id="number-incorrect">Number Guess Wrong:</div>
-      <div id="incorrect-answers"></div>
-    </div>
-    <div class="clearfix ">
-      <div id="number-unanswered">Number Unanswered:</div>
-      <div id="unanswered"></div>
-    </div>
-  </div>
 
 
-  <footer class="start-done-buttons ">
-    <button id="start-game">Start Quiz</button>
-    <button id="see-score">See Score</button>
-  </footer>
+
+
 
 
 

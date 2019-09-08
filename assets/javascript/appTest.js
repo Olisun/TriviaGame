@@ -70,7 +70,7 @@ $(document).ready(function() {
         clearInterval(wiggly)
         seeScore();
         timeRemaining = 12;
-        $('.countdown-container').css("display", "none");
+        // $('.countdown-container').css("display", "none");
       }
     }, 1000)
   }
@@ -302,7 +302,7 @@ $(document).ready(function() {
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
     isGameRunning = false;
-    // $('#start-game').on('click', start);
+    // $('.countdown-container').css("display", "none");
     clearInterval(wiggly);
   }
 
