@@ -41,8 +41,8 @@ $(document).ready(function() {
   var answerTruFive = $("input[value='truFive']");
   var answerFalsFive = $("input[value='falsFive']");
 
-  scoreBoard.css("display", "none");
-  timeClock.css("display", "none");
+  // scoreBoard.css("display", "none");
+  // timeClock.css("display", "none");
   // audio.play();
 
   $('#start-game').on('click', start);
@@ -71,12 +71,12 @@ $(document).ready(function() {
       var converted = clockFormatter(timeRemaining);
       $('#countdown-clock').text(converted)
       timeRemaining--;
-      if (timeRemaining === 0) {
+      if (timeRemaining < 0) {
         clearInterval(wiggly)
         seeScore();
         timeRemaining = 12;
-        scoreBoard.css("display", "block");
-        timeClock.css("display", "none");
+        // scoreBoard.css("display", "block");
+        // timeClock.css("display", "none");
       }
     }, 1000 * 1)
   }
@@ -91,7 +91,7 @@ $(document).ready(function() {
     correctAnswers = 0;
     incorrectAnswers = 0;
     timeRemaining = 12;
-    timeClock.css("display", "block");
+    // timeClock.css("display", "block");
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
 
@@ -99,9 +99,6 @@ $(document).ready(function() {
     answerSebastianS.on('click', sebastianS);
     answerSebastianB.on('click', sebastianB);
     answerSteveB.on('click', steveB);
-
-    answerTruOne.on('click', truOne);
-    answerFalsOne.on('click', falsOne);
 
     answerMighty.on('click', mighty);
     answerSuperH.on('click', superH);
@@ -158,21 +155,36 @@ $(document).ready(function() {
     }
   };
 
-  function truOne() {
+  var isRadioTruOneClicked = false;
+  var isRadioFalseOneClicked = false;
+
+  answerTruOne.on('click', function() {
     var radioValue = answerTruOne.val();
     if (radioValue) {
+      isRadioTruOneClicked = true;
       incorrectAnswers++;
       answerTruOne.off();
-    }
-  };
+    };
 
-  function falsOne() {
+    if (isRadioFalseOneClicked = true) {
+      alert('two clicks')
+    };
+  });
+
+  answerFalsOne.on('click', function() {
     var radioValue = answerFalsOne.val();
     if (radioValue) {
+      isRadioFalseOneClicked = true;
       correctAnswers++;
       answerFalsOne.off();
-    }
-  };
+    };
+
+    if (isRadioTruOneClicked = true) {
+      alert('TWO CLICKS')
+    };
+  });
+
+
 
   function mighty() {
     var radioValue = answerMighty.val();
@@ -307,8 +319,8 @@ $(document).ready(function() {
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
     isGameRunning = false;
-    scoreBoard.css("display", "block");
-    timeClock.css("display", "none");
+    // scoreBoard.css("display", "block");
+    // timeClock.css("display", "none");
     clearInterval(wiggly);
   }
 

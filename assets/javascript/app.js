@@ -7,10 +7,44 @@ $(document).ready(function() {
   var gameOver = 'GAME OVER'
   var isGameRunning = false;
   var radioButtonReset = $("input[type='radio']");
-  var answerEarth = $("input[value='earth']");
-  var answerAsgard = $("input[value='asgard']");
-  var answerFive = $("input[value='five']");
-  var answerSix = $("input[value='six']");
+  var scoreBoard = $('.score-board');
+  var timeClock = $('.timer-button-container');
+  // var audio = $('#theme-music');
+
+  var answerRyanG = $("input[value='ryan-gosling']");
+
+  var answerSebastianS = $("input[value='sebastian-stan']");
+  var answerSebastianB = $("input[value='sebastian-bach']");
+  var answerSteveB = $("input[value='steve-buscemi']");
+
+  var answerTruOne = $("input[value='truone']");
+  var answerFalsOne = $("input[value='falsone']");
+
+  var answerMighty = $("input[value='mighty']");
+  var answerSuperH = $("input[value='superhuman']");
+  var answerWorthy = $("input[value='worthy']");
+  var answerThor = $("input[value='thor']");
+
+  var answerTruTwo = $("input[value='truTwo']");
+  var answerFalsTwo = $("input[value='falsTwo']");
+
+  var answerTwentyThree = $("input[value='23']");
+  var answerTwentyOne = $("input[value='21']");
+  var answerFourteen = $("input[value='14']");
+  var answerTwentyFive = $("input[value='25']");
+
+  var answerTruThree = $("input[value='truThree']");
+  var answerFalsThree = $("input[value='falsThree']");
+
+  var answerTruFour = $("input[value='truFour']");
+  var answerFalsFour = $("input[value='falsFour']");
+
+  var answerTruFive = $("input[value='truFive']");
+  var answerFalsFive = $("input[value='falsFive']");
+
+  scoreBoard.css("display", "none");
+  timeClock.css("display", "none");
+  // audio.play();
 
   $('#start-game').on('click', start);
   $('#see-score').on('click', seeScore);
@@ -30,8 +64,6 @@ $(document).ready(function() {
   }
 
   function start() {
-    $('.radio-buttons').css("display", "inline");
-    $('.score-board').css("display", "none");
     radioButtonReset.prop("checked", false);
     isGameRunning = true;
     startQuiz();
@@ -41,11 +73,13 @@ $(document).ready(function() {
       $('#countdown-clock').text(converted)
       timeRemaining--;
       if (timeRemaining === 0) {
-        gameOver()
+        clearInterval(wiggly)
+        seeScore();
         timeRemaining = 12;
-        $('#countdown-clock').text(gameOver);
+        scoreBoard.css("display", "block");
+        timeClock.css("display", "none");
       }
-    }, 1000)
+    }, 1000 * 1)
   }
 
   function startOnlyOnce() {
@@ -58,63 +92,247 @@ $(document).ready(function() {
     correctAnswers = 0;
     incorrectAnswers = 0;
     timeRemaining = 12;
+    timeClock.css("display", "block");
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
-
-    answerEarth.on('click', earth);
-    answerAsgard.on('click', asgard);
-    answerFive.on('click', five);
-    answerSix.on('click', six);
   }
 
-  function earth() {
-    var radioValue = answerEarth.val();
+  answerRyanG.on('click', ryanG);
+  answerSebastianS.on('click', sebastianS);
+  answerSebastianB.on('click', sebastianB);
+  answerSteveB.on('click', steveB);
+
+  answerTruOne.on('click', truOne);
+  answerFalsOne.on('click', falsOne);
+
+  answerMighty.on('click', mighty);
+  answerSuperH.on('click', superH);
+  answerWorthy.on('click', worthy);
+  answerThor.on('click', thor);
+
+  answerTruTwo.on('click', truTwo);
+  answerfalseTwo.on('click', falseTwo);
+
+  answerTwentyThree.on('click', twentyThree);
+  answerTwentyOne.on('click', twentyOne);
+  answerFourteen.on('click', fourteen);
+  answerTwentyFive.on('click', twentyFive);
+
+  answerTruThree.on('click', truThree);
+  answerFalsThree.on('click', falsThree);
+
+  answerTruFour.on('click', truFour);
+  answerFalsFour.on('click', falsFour);
+
+  answerTruFive.on('click', truFive);
+  answerFalsFive.on('click', falsFive);
+
+
+  function ryanG() {
+    var radioValue = answerRyanG.val();
     if (radioValue) {
       incorrectAnswers++;
-      answerEarth.off();
+      answerRyanG.off();
     }
   };
 
-  function asgard() {
-    var radioValue = answerAsgard.val();
+  function sebastianS() {
+    var radioValue = answerSebastianS.val();
     if (radioValue) {
       correctAnswers++;
-      answerAsgard.off();
+      answerSebastianS.off();
     }
   };
 
-  function five() {
-    var radioValue = answerFive.val();
+  function sebastianB() {
+    var radioValue = answerSebastianB.val();
     if (radioValue) {
       incorrectAnswers++;
-      answerFive.off();
+      answerSebastianB.off();
     }
   };
 
-  function six() {
-    var radioValue = answerSix.val();
+  function steveB() {
+    var radioValue = answerSteveB.val();
     if (radioValue) {
-      correctAnswers++;
-      answerSix.off();
+      incorrectAnswers++;
+      answerSteveB.off();
     }
   };
+
+  var isAnswerTrueOneClicked = false;
+
+
+
+
+  function truOne() {
+    var radioValue = answerTruOne.val();
+    isAnswerTrueOneClicked = true;
+    if (radioValue) {
+      incorrectAnswers++;
+      answerTruOne.off();
+    }
+  };
+
+  answerFalsOne.on('click', function() {
+    var radioValue = answerFalsOne.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerFalsOne.off();
+    }
+    // } else if (radioValue || isAnswerTrueOneClicked == true) {
+    //   correctAnswers++;
+    //   incorrectAnswers--;
+    //   answerFalsOne.off();
+    // } else if (isAnswerTrueOneClicked == true) {
+    //   alert('true')
+    // }
+  });
+
+  function mighty() {
+    var radioValue = answerMighty.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerMighty.off();
+    }
+  };
+
+  function superH() {
+    var radioValue = answerSuperH.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerSuperH.off();
+    }
+  };
+
+  function worthy() {
+    var radioValue = answerWorthy.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerWorthy.off();
+    }
+  };
+
+  function thor() {
+    var radioValue = answerThor.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerThor.off();
+    }
+  };
+
+  function truTwo() {
+    var radioValue = answerTruTwo.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerTruTwo.off();
+    }
+  };
+
+  function falsTwo() {
+    var radioValue = answerFalsTwo.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerFalsTwo.off();
+    }
+  };
+
+  function truThree() {
+    var radioValue = answerTruThree.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerTruThree.off();
+    }
+  };
+
+  function falsThree() {
+    var radioValue = answerFalsThree.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerFalsThree.off();
+    }
+  };
+
+  function truFour() {
+    var radioValue = answerTruFour.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerTruFour.off();
+    }
+  };
+
+  function falsFour() {
+    var radioValue = answerFalsFour.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerFalsFour.off();
+    }
+  };
+
+  function truFive() {
+    var radioValue = answerTruFive.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerTruFive.off();
+    }
+  };
+
+  function falsFive() {
+    var radioValue = answerFalsFive.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerFalsFive.off();
+    }
+  };
+  // -----
+  function twentyThree() {
+    var radioValue = answerTwentyThree.val();
+    if (radioValue) {
+      correctAnswers++;
+      answerTwentyThree.off();
+    }
+  };
+
+  function twentyOne() {
+    var radioValue = answerTwentyOne.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerTwentyOne.off();
+    }
+  };
+
+  function fourteen() {
+    var radioValue = answerFourteen.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerFourteen.off();
+    }
+  };
+
+  function twentyFive() {
+    var radioValue = answerTwentyFive.val();
+    if (radioValue) {
+      incorrectAnswers++;
+      answerTwentyFive.off();
+    }
+  };
+
 
   function seeScore() {
-    $('.radio-buttons').css("display", "none");
-    $('.score-board').css("display", "block");
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
     isGameRunning = false;
-    $('#start-game').on('click', start);
+    scoreBoard.css("display", "block");
+    timeClock.css("display", "none");
     clearInterval(wiggly);
   }
 
-  function gameOver() {
-    $('.radio-buttons').css("display", "none");
-    $('.score-board').css("display", "block");
-    $('#incorrect-answers').text(incorrectAnswers);
-    $('#correct-answers').text(correctAnswers);
-    // isGameRunning = false;
-    clearInterval(wiggly);
+  function reStart() {
+    if (isGameRunning = false) {
+      $('#start-game').on('click', start);
+    }
   }
+
+  reStart();
+
 });
