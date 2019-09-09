@@ -16,14 +16,15 @@ body {
   margin-top: 10px;
   width: 100%;
   font-family: cursive;
+  /* opacity: 2.2; */
 }
 
 .welcome {
   margin-top: 10px;
   margin-left: 10px;
-  font-size: 16px;
+  font-size: 24px;
   font-family: cursive;
-  color: white;
+  color: black;
   /* position: fixed; */
 }
 
@@ -36,12 +37,12 @@ body {
   width: 300px;
   /* position: fixed; */
   font-family: cursive;
-  text-align: center;
+  /* text-align: center; */
 }
 
 #time-remaining {
   /* text-align: center; */
-  color: white;
+  color: black;
   /* margin: auto; */
   font-size: 20px;
   width: 300px;
@@ -51,10 +52,10 @@ body {
 
 #countdown-clock {
   /* text-align: center; */
-  color: white;
+  color: black;
   font-size: 36px;
   width: 300px;
-  margin-left: 10px;
+  margin-left: 30px;
   /* margin: auto; */
   /* float: right; */
   /* position: relative; */
@@ -63,20 +64,21 @@ body {
 
 form {
   margin-top: 40px;
-  font-size: 14px;
+  font-size: 20px;
   font-family: cursive;
+  background: azure;
 }
 
 .radio-buttons {
   /* text-align: center; */
   /* display: none; */
-  color: white;
+  color: black;
   margin: auto;
 }
 
 .score-board {
   /* text-align: center; */
-  color: white;
+  color: black;
   font-size: 20px;
   font-family: cursive;
   width: 400px;
@@ -96,9 +98,10 @@ form {
 aside {
   float: left;
   width: 400px;
-  height: 200px;
+  height: 100%;
   font-family: cursive;
   position: fixed;
+  background: azure;
 }
 
 main {

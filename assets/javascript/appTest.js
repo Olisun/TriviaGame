@@ -41,8 +41,6 @@ $(document).ready(function() {
   var answerTruFive = $("input[value='truFive']");
   var answerFalsFive = $("input[value='falsFive']");
 
-  // scoreBoard.css("display", "none");
-  // timeClock.css("display", "none");
   // audio.play();
 
   $('#start-game').on('click', start);
@@ -75,8 +73,6 @@ $(document).ready(function() {
         clearInterval(wiggly)
         seeScore();
         timeRemaining = 12;
-        // scoreBoard.css("display", "block");
-        // timeClock.css("display", "none");
       }
     }, 1000 * 1)
   }
@@ -88,183 +84,240 @@ $(document).ready(function() {
   }
 
   function startQuiz() {
-    correctAnswers = 0;
-    incorrectAnswers = 0;
-    timeRemaining = 12;
-    // timeClock.css("display", "block");
     $('#incorrect-answers').text(incorrectAnswers);
-    $('#correct-answers').text(correctAnswers);
-
-    answerRyanG.on('click', ryanG);
-    answerSebastianS.on('click', sebastianS);
-    answerSebastianB.on('click', sebastianB);
-    answerSteveB.on('click', steveB);
-
-    answerMighty.on('click', mighty);
-    answerSuperH.on('click', superH);
-    answerWorthy.on('click', worthy);
-    answerThor.on('click', thor);
-
-    answerTruTwo.on('click', truTwo);
-    answerFalsTwo.on('click', falsTwo);
-
-    answerTwentyThree.on('click', twentyThree);
-    answerTwentyOne.on('click', twentyOne);
-    answerFourteen.on('click', fourteen);
-    answerTwentyFive.on('click', twentyFive);
-
-    answerTruThree.on('click', truThree);
-    answerFalsThree.on('click', falsThree);
-
-    answerTruFour.on('click', truFour);
-    answerFalsFour.on('click', falsFour);
-
-    answerTruFive.on('click', truFive);
-    answerFalsFive.on('click', falsFive);
+    $('#correct-answers').text(correctAnswers)
   }
 
-  function ryanG() {
+  var isRadioRyanClicked = false;
+  var isRadioWinterSoldierClicked = false;
+  var isRadioMotleyCrewClicked = false;
+  var isRadioSteveClicked = false;
+
+  answerRyanG.on('click', function() {
     var radioValue = answerRyanG.val();
     if (radioValue) {
+      isRadioRyanClicked = true;
       incorrectAnswers++;
       answerRyanG.off();
-    }
-  };
+    };
 
-  function sebastianS() {
+    if (isRadioRyanClicked = true) {
+      alert('Ryan')
+    };
+  });
+
+  answerSebastianS.on('click', function() {
     var radioValue = answerSebastianS.val();
     if (radioValue) {
+      isRadioWinterSoldierClicked = true;
       correctAnswers++;
       answerSebastianS.off();
-    }
-  };
+    };
 
-  function sebastianB() {
+    if (isRadioWinterSoldierClicked = true) {
+      alert('Winter Soldier')
+    };
+  });
+
+  answerSebastianB.on('click', function() {
     var radioValue = answerSebastianB.val();
     if (radioValue) {
+      isRadioMotleyCrewClicked = true;
       incorrectAnswers++;
       answerSebastianB.off();
     }
-  };
 
-  function steveB() {
+    if (isRadioMotleyCrewClicked = true) {
+      alert('Mothley Crew')
+    };
+  });
+
+  answerSteveB.on('click', function() {
     var radioValue = answerSteveB.val();
     if (radioValue) {
+      isRadioSteveClicked = true;
       incorrectAnswers++;
       answerSteveB.off();
     }
-  };
 
-  var isRadioTruOneClicked = false;
-  var isRadioFalseOneClicked = false;
+    if (isRadioSteveClicked = true) {
+      alert('steve')
+    };
+  });
+
+  var isTruOneClicked = false;
+  var isFalseOneClicked = false;
 
   answerTruOne.on('click', function() {
     var radioValue = answerTruOne.val();
     if (radioValue) {
-      isRadioTruOneClicked = true;
+      isTruOneClicked = true;
       incorrectAnswers++;
       answerTruOne.off();
     };
 
-    if (isRadioFalseOneClicked = true) {
-      alert('two clicks')
+    if (isTruOneClicked = true) {
+      alert('TruOne')
     };
   });
 
   answerFalsOne.on('click', function() {
     var radioValue = answerFalsOne.val();
     if (radioValue) {
-      isRadioFalseOneClicked = true;
+      isFalseOneClicked = true;
       correctAnswers++;
       answerFalsOne.off();
     };
 
-    if (isRadioTruOneClicked = true) {
-      alert('TWO CLICKS')
+    if (isFalseOneClicked = true) {
+      alert('FalseOne')
     };
   });
 
+  var isMightyClicked = false;
+  var isSuperClicked = false;
+  var isWorthyClicked = false;
+  var isThorClicked = false;
 
-
-  function mighty() {
+  answerMighty.on('click', function() {
     var radioValue = answerMighty.val();
     if (radioValue) {
       incorrectAnswers++;
       answerMighty.off();
-    }
-  };
+    };
 
-  function superH() {
+    if (isMightyClicked = true) {
+      alert('Mighty')
+    };
+  });
+
+  answerSuperH.on('click', function() {
     var radioValue = answerSuperH.val();
     if (radioValue) {
       incorrectAnswers++;
       answerSuperH.off();
-    }
-  };
+    };
 
-  function worthy() {
+    if (isSuperClicked = true) {
+      alert('Super')
+    };
+  });
+
+  answerWorthy.on('click', function() {
     var radioValue = answerWorthy.val();
     if (radioValue) {
       correctAnswers++;
       answerWorthy.off();
-    }
-  };
+    };
 
-  function thor() {
+    if (isWorthyClicked = true) {
+      alert('Worthy')
+    };
+  });
+
+  answerThor.on('click', function() {
     var radioValue = answerThor.val();
     if (radioValue) {
       incorrectAnswers++;
       answerThor.off();
-    }
-  };
+    };
 
-  function truTwo() {
+    if (isThorClicked = true) {
+      alert('Thor')
+    };
+  });
+
+  var isTruTwoClicked = false;
+  var isFalseTwoClicked = false;
+
+  answerTruTwo.on('click', function() {
     var radioValue = answerTruTwo.val();
     if (radioValue) {
+      isTruTwoClicked = true;
       incorrectAnswers++;
       answerTruTwo.off();
-    }
-  };
+    };
 
-  function falsTwo() {
+    if (isTruTwoClicked = true) {
+      alert('True 2')
+    };
+  });
+
+  answerFalsTwo.on('click', function() {
     var radioValue = answerFalsTwo.val();
     if (radioValue) {
+      isFalseTwoClicked = true;
       correctAnswers++;
       answerFalsTwo.off();
     }
-  };
 
-  function truThree() {
+    if (isFalseTwoClicked = true) {
+      alert('False2')
+    };
+  });
+
+  var isTruThreeClicked = false;
+  var isFalseThreeClicked = false;
+
+  answerTruThree.on('click', function() {
     var radioValue = answerTruThree.val();
     if (radioValue) {
+      isTruThreeClicked = true;
       correctAnswers++;
       answerTruThree.off();
-    }
-  };
+    };
 
-  function falsThree() {
+    if (isTruThreeClicked = true) {
+      alert('True3')
+    };
+  });
+
+  answerFalsThree.on('click', function() {
     var radioValue = answerFalsThree.val();
     if (radioValue) {
+      isFalseThreeClicked = true;
       incorrectAnswers++;
       answerFalsThree.off();
-    }
-  };
+    };
 
-  function truFour() {
+    if (isFalseThreeClicked = true) {
+      alert('False3')
+    };
+  });
+
+  var isTruFourClicked = false;
+  var isFalseFourClicked = false;
+
+  answerTruFour.on('click', function() {
     var radioValue = answerTruFour.val();
     if (radioValue) {
+      isTruTwoClicked = true;
       incorrectAnswers++;
       answerTruFour.off();
-    }
-  };
+    };
 
-  function falsFour() {
+    if (isTruFourClicked = true) {
+      alert('True4')
+    };
+  });
+
+
+  answerFalsFour.on('click', function() {
     var radioValue = answerFalsFour.val();
     if (radioValue) {
+      isFalseFourClicked = true;
       correctAnswers++;
       answerFalsFour.off();
-    }
-  };
+    };
+
+    if (isFalseFourClicked = true) {
+      alert('False4')
+    };
+  });
+
+
+  answerTruFive.on('click', truFive);
+  answerFalsFive.on('click', falsFive);
 
   function truFive() {
     var radioValue = answerTruFive.val();
@@ -281,7 +334,12 @@ $(document).ready(function() {
       answerFalsFive.off();
     }
   };
-  // -----
+
+  answerTwentyThree.on('click', twentyThree);
+  answerTwentyOne.on('click', twentyOne);
+  answerFourteen.on('click', fourteen);
+  answerTwentyFive.on('click', twentyFive);
+
   function twentyThree() {
     var radioValue = answerTwentyThree.val();
     if (radioValue) {
@@ -319,8 +377,6 @@ $(document).ready(function() {
     $('#incorrect-answers').text(incorrectAnswers);
     $('#correct-answers').text(correctAnswers);
     isGameRunning = false;
-    // scoreBoard.css("display", "block");
-    // timeClock.css("display", "none");
     clearInterval(wiggly);
   }
 
