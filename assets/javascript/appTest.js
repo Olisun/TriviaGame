@@ -2,9 +2,7 @@ $(document).ready(function() {
   var wiggly;
   var timeRemaining = 12;
   var correctAnswers = 0;
-  // var correctAnswersDisplay = $('#correct-answers');
   var incorrectAnswers = 0;
-  // var inCorrectAnswersDisplay = $('#incorrect-answers');
   var unAnswered = 0;
   var gameOver = 'GAME OVER'
   var isGameRunning = false;
@@ -17,31 +15,47 @@ $(document).ready(function() {
   var answerSebastianS = $("input[value='sebastian-stan']");
   var answerSebastianB = $("input[value='sebastian-bach']");
   var answerSteveB = $("input[value='steve-buscemi']");
-
   var answerTruOne = $("input[value='truone']");
   var answerFalsOne = $("input[value='falsone']");
-
   var answerMighty = $("input[value='mighty']");
   var answerSuperH = $("input[value='superhuman']");
   var answerWorthy = $("input[value='worthy']");
   var answerThor = $("input[value='thor']");
-
   var answerTruTwo = $("input[value='truTwo']");
   var answerFalsTwo = $("input[value='falsTwo']");
-
   var answerTwentyThree = $("input[value='23']");
   var answerTwentyOne = $("input[value='21']");
   var answerFourteen = $("input[value='14']");
   var answerTwentyFive = $("input[value='25']");
-
   var answerTruThree = $("input[value='truThree']");
   var answerFalsThree = $("input[value='falsThree']");
-
   var answerTruFour = $("input[value='truFour']");
   var answerFalsFour = $("input[value='falsFour']");
-
   var answerTruFive = $("input[value='truFive']");
   var answerFalsFive = $("input[value='falsFive']");
+
+  var isRadioRyanClicked = false;
+  var isRadioWinterSoldierClicked = false;
+  var isRadioMotleyCrewClicked = false;
+  var isRadioSteveClicked = false;
+  var isTruOneClicked = false;
+  var isFalseOneClicked = false;
+  var isMightyClicked = false;
+  var isSuperClicked = false;
+  var isWorthyClicked = false;
+  var isThorClicked = false;
+  var isTruTwoClicked = false;
+  var isFalseTwoClicked = false;
+  var isTwentyThreeClicked = false;
+  var isTwentyOneClicked = false;
+  var isFourteenClicked = false;
+  var isTwentyFiveClicked = false;
+  var isTruThreeClicked = false;
+  var isFalseThreeClicked = false;
+  var isTruFourClicked = false;
+  var isFalseFourClicked = false;
+  var isTruFiveClicked = false;
+  var isFalseFiveClicked = false;
 
   // audio.play();
 
@@ -83,11 +97,6 @@ $(document).ready(function() {
       $('#start-game').off()
     }
   }
-
-  var isRadioRyanClicked = false;
-  var isRadioWinterSoldierClicked = false;
-  var isRadioMotleyCrewClicked = false;
-  var isRadioSteveClicked = false;
 
   answerRyanG.on('click', function() {
     var radioValue = answerRyanG.val();
@@ -141,9 +150,6 @@ $(document).ready(function() {
     };
   });
 
-  var isTruOneClicked = false;
-  var isFalseOneClicked = false;
-
   answerTruOne.on('click', function() {
     var radioValue = answerTruOne.val();
     if (radioValue) {
@@ -169,11 +175,6 @@ $(document).ready(function() {
       alert('FalseOne')
     };
   });
-
-  var isMightyClicked = false;
-  var isSuperClicked = false;
-  var isWorthyClicked = false;
-  var isThorClicked = false;
 
   answerMighty.on('click', function() {
     var radioValue = answerMighty.val();
@@ -223,9 +224,6 @@ $(document).ready(function() {
     };
   });
 
-  var isTruTwoClicked = false;
-  var isFalseTwoClicked = false;
-
   answerTruTwo.on('click', function() {
     var radioValue = answerTruTwo.val();
     if (radioValue) {
@@ -251,9 +249,6 @@ $(document).ready(function() {
       alert('False2')
     };
   });
-
-  var isTruThreeClicked = false;
-  var isFalseThreeClicked = false;
 
   answerTruThree.on('click', function() {
     var radioValue = answerTruThree.val();
@@ -281,9 +276,6 @@ $(document).ready(function() {
     };
   });
 
-  var isTruFourClicked = false;
-  var isFalseFourClicked = false;
-
   answerTruFour.on('click', function() {
     var radioValue = answerTruFour.val();
     if (radioValue) {
@@ -297,7 +289,6 @@ $(document).ready(function() {
     };
   });
 
-
   answerFalsFour.on('click', function() {
     var radioValue = answerFalsFour.val();
     if (radioValue) {
@@ -310,9 +301,6 @@ $(document).ready(function() {
       alert('False4')
     };
   });
-
-  var isTruFiveClicked = false;
-  var isFalseFiveClicked = false;
 
   answerTruFive.on('click', function() {
     var radioValue = answerTruFive.val();
@@ -340,45 +328,57 @@ $(document).ready(function() {
     };
   });
 
-
-
-  answerTwentyThree.on('click', twentyThree);
-  answerTwentyOne.on('click', twentyOne);
-  answerFourteen.on('click', fourteen);
-  answerTwentyFive.on('click', twentyFive);
-
-  function twentyThree() {
+  answerTwentyThree.on('click', function() {
     var radioValue = answerTwentyThree.val();
     if (radioValue) {
+      isTwentyThreeClicked = true;
       correctAnswers++;
       answerTwentyThree.off();
-    }
-  };
+    };
 
-  function twentyOne() {
+    if (isTwentyThreeClicked = true) {
+      alert('23')
+    };
+  });
+
+  answerTwentyOne.on('click', function() {
     var radioValue = answerTwentyOne.val();
     if (radioValue) {
+      isTwentyOneClicked = true;
       incorrectAnswers++;
       answerTwentyOne.off();
-    }
-  };
+    };
 
-  function fourteen() {
+    if (isTwentyThreeClicked = true) {
+      alert('21')
+    };
+  });
+
+  answerFourteen.on('click', function() {
     var radioValue = answerFourteen.val();
     if (radioValue) {
+      isFourteenClicked = true;
       incorrectAnswers++;
       answerFourteen.off();
-    }
-  };
+    };
 
-  function twentyFive() {
+    if (isFourteenClicked = true) {
+      alert('14')
+    };
+  });
+
+  answerTwentyFive.on('click', function() {
     var radioValue = answerTwentyFive.val();
     if (radioValue) {
+      isTwentyFiveClicked = true;
       incorrectAnswers++;
       answerTwentyFive.off();
-    }
-  };
+    };
 
+    if (isTwentyFiveClicked = true) {
+      alert('25')
+    };
+  });
 
   function seeScore() {
     $('#incorrect-answers').text(incorrectAnswers);
