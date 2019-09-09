@@ -96,289 +96,292 @@ $(document).ready(function() {
     if (isGameRunning = true) {
       $('#start-game').off()
     }
+
+
+    answerRyanG.on('click', function() {
+      var radioValue = answerRyanG.val();
+      if (radioValue) {
+        isRadioRyanClicked = true;
+        incorrectAnswers++;
+        answerRyanG.off();
+      };
+
+      if (isRadioRyanClicked = true) {
+        alert('Ryan')
+      };
+    });
+
+    answerSebastianS.on('click', function() {
+      var radioValue = answerSebastianS.val();
+      if (radioValue) {
+        isRadioWinterSoldierClicked = true;
+        correctAnswers++;
+        answerSebastianS.off();
+      };
+
+      if (isRadioWinterSoldierClicked = true) {
+        alert('Winter Soldier')
+      };
+    });
+
+    answerSebastianB.on('click', function() {
+      var radioValue = answerSebastianB.val();
+      if (radioValue) {
+        isRadioMotleyCrewClicked = true;
+        incorrectAnswers++;
+        answerSebastianB.off();
+      }
+
+      if (isRadioMotleyCrewClicked = true) {
+        alert('Mothley Crew')
+      };
+    });
+
+    answerSteveB.on('click', function() {
+      var radioValue = answerSteveB.val();
+      if (radioValue) {
+        isRadioSteveClicked = true;
+        incorrectAnswers++;
+        answerSteveB.off();
+      }
+
+      if (isRadioSteveClicked = true) {
+        alert('steve')
+      };
+    });
+
+    answerTruOne.on('click', function() {
+      var radioValue = answerTruOne.val();
+      if (radioValue) {
+        isTruOneClicked = true
+        incorrectAnswers++;
+        answerTruOne.off();
+      };
+
+      if (isTruOneClicked) {
+        alert('TruOne')
+      };
+
+
+    });
+
+    answerFalsOne.on('click', function() {
+      var radioValue = answerFalsOne.val();
+      if (radioValue) {
+        isFalseOneClicked = true;
+        correctAnswers++;
+        answerFalsOne.off();
+      };
+
+      if (isFalseOneClicked) {
+        alert('FalseOne')
+      };
+    });
+
+    answerMighty.on('click', function() {
+      var radioValue = answerMighty.val();
+      if (radioValue) {
+        incorrectAnswers++;
+        answerMighty.off();
+      };
+
+      if (isMightyClicked = true) {
+        alert('Mighty')
+      };
+    });
+
+    answerSuperH.on('click', function() {
+      var radioValue = answerSuperH.val();
+      if (radioValue) {
+        incorrectAnswers++;
+        answerSuperH.off();
+      };
+
+      if (isSuperClicked = true) {
+        alert('Super')
+      };
+    });
+
+    answerWorthy.on('click', function() {
+      var radioValue = answerWorthy.val();
+      if (radioValue) {
+        correctAnswers++;
+        answerWorthy.off();
+      };
+
+      if (isWorthyClicked = true) {
+        alert('Worthy')
+      };
+    });
+
+    answerThor.on('click', function() {
+      var radioValue = answerThor.val();
+      if (radioValue) {
+        incorrectAnswers++;
+        answerThor.off();
+      };
+
+      if (isThorClicked = true) {
+        alert('Thor')
+      };
+    });
+
+    answerTruTwo.on('click', function() {
+      var radioValue = answerTruTwo.val();
+      if (radioValue) {
+        isTruTwoClicked = true;
+        incorrectAnswers++;
+        answerTruTwo.off();
+      };
+
+      if (isTruTwoClicked = true) {
+        alert('True 2')
+      };
+    });
+
+    answerFalsTwo.on('click', function() {
+      var radioValue = answerFalsTwo.val();
+      if (radioValue) {
+        isFalseTwoClicked = true;
+        correctAnswers++;
+        answerFalsTwo.off();
+      }
+
+      if (isFalseTwoClicked = true) {
+        alert('False2')
+      };
+    });
+
+    answerTruThree.on('click', function() {
+      var radioValue = answerTruThree.val();
+      if (radioValue) {
+        isTruThreeClicked = true;
+        correctAnswers++;
+        answerTruThree.off();
+      };
+
+      if (isTruThreeClicked = true) {
+        alert('True3')
+      };
+    });
+
+    answerFalsThree.on('click', function() {
+      var radioValue = answerFalsThree.val();
+      if (radioValue) {
+        isFalseThreeClicked = true;
+        incorrectAnswers++;
+        answerFalsThree.off();
+      };
+
+      if (isFalseThreeClicked = true) {
+        alert('False3')
+      };
+    });
+
+    answerTruFour.on('click', function() {
+      var radioValue = answerTruFour.val();
+      if (radioValue) {
+        isTruTwoClicked = true;
+        incorrectAnswers++;
+        answerTruFour.off();
+      };
+
+      if (isTruFourClicked = true) {
+        alert('True4')
+      };
+    });
+
+    answerFalsFour.on('click', function() {
+      var radioValue = answerFalsFour.val();
+      if (radioValue) {
+        isFalseFourClicked = true;
+        correctAnswers++;
+        answerFalsFour.off();
+      };
+
+      if (isFalseFourClicked = true) {
+        alert('False4')
+      };
+    });
+
+    answerTruFive.on('click', function() {
+      var radioValue = answerTruFive.val();
+      if (radioValue) {
+        isTruFiveClicked = true;
+        correctAnswers++;
+        answerTruFive.off();
+      };
+
+      if (isTruFiveClicked = true) {
+        alert('True5')
+      };
+    });
+
+    answerFalsFive.on('click', function() {
+      var radioValue = answerFalsFive.val();
+      if (radioValue) {
+        isFalseFiveClicked = true;
+        incorrectAnswers++;
+        answerFalsFive.off();
+      };
+
+      if (isFalseFiveClicked = true) {
+        alert('False5')
+      };
+    });
+
+    answerTwentyThree.on('click', function() {
+      var radioValue = answerTwentyThree.val();
+      if (radioValue) {
+        isTwentyThreeClicked = true;
+        correctAnswers++;
+        answerTwentyThree.off();
+      };
+
+      if (isTwentyThreeClicked = true) {
+        alert('23')
+      };
+    });
+
+    answerTwentyOne.on('click', function() {
+      var radioValue = answerTwentyOne.val();
+      if (radioValue) {
+        isTwentyOneClicked = true;
+        incorrectAnswers++;
+        answerTwentyOne.off();
+      };
+
+      if (isTwentyThreeClicked = true) {
+        alert('21')
+      };
+    });
+
+    answerFourteen.on('click', function() {
+      var radioValue = answerFourteen.val();
+      if (radioValue) {
+        isFourteenClicked = true;
+        incorrectAnswers++;
+        answerFourteen.off();
+      };
+
+      if (isFourteenClicked = true) {
+        alert('14')
+      };
+    });
+
+    answerTwentyFive.on('click', function() {
+      var radioValue = answerTwentyFive.val();
+      if (radioValue) {
+        isTwentyFiveClicked = true;
+        incorrectAnswers++;
+        answerTwentyFive.off();
+      };
+
+      if (isTwentyFiveClicked = true) {
+        alert('25')
+      };
+    });
   }
-
-  answerRyanG.on('click', function() {
-    var radioValue = answerRyanG.val();
-    if (radioValue) {
-      isRadioRyanClicked = true;
-      incorrectAnswers++;
-      answerRyanG.off();
-    };
-
-    if (isRadioRyanClicked = true) {
-      alert('Ryan')
-    };
-  });
-
-  answerSebastianS.on('click', function() {
-    var radioValue = answerSebastianS.val();
-    if (radioValue) {
-      isRadioWinterSoldierClicked = true;
-      correctAnswers++;
-      answerSebastianS.off();
-    };
-
-    if (isRadioWinterSoldierClicked = true) {
-      alert('Winter Soldier')
-    };
-  });
-
-  answerSebastianB.on('click', function() {
-    var radioValue = answerSebastianB.val();
-    if (radioValue) {
-      isRadioMotleyCrewClicked = true;
-      incorrectAnswers++;
-      answerSebastianB.off();
-    }
-
-    if (isRadioMotleyCrewClicked = true) {
-      alert('Mothley Crew')
-    };
-  });
-
-  answerSteveB.on('click', function() {
-    var radioValue = answerSteveB.val();
-    if (radioValue) {
-      isRadioSteveClicked = true;
-      incorrectAnswers++;
-      answerSteveB.off();
-    }
-
-    if (isRadioSteveClicked = true) {
-      alert('steve')
-    };
-  });
-
-  answerTruOne.on('click', function() {
-    var radioValue = answerTruOne.val();
-    if (radioValue) {
-      isTruOneClicked = true;
-      incorrectAnswers++;
-      answerTruOne.off();
-    };
-
-    if (isTruOneClicked = true) {
-      alert('TruOne')
-    };
-  });
-
-  answerFalsOne.on('click', function() {
-    var radioValue = answerFalsOne.val();
-    if (radioValue) {
-      isFalseOneClicked = true;
-      correctAnswers++;
-      answerFalsOne.off();
-    };
-
-    if (isFalseOneClicked = true) {
-      alert('FalseOne')
-    };
-  });
-
-  answerMighty.on('click', function() {
-    var radioValue = answerMighty.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerMighty.off();
-    };
-
-    if (isMightyClicked = true) {
-      alert('Mighty')
-    };
-  });
-
-  answerSuperH.on('click', function() {
-    var radioValue = answerSuperH.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerSuperH.off();
-    };
-
-    if (isSuperClicked = true) {
-      alert('Super')
-    };
-  });
-
-  answerWorthy.on('click', function() {
-    var radioValue = answerWorthy.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerWorthy.off();
-    };
-
-    if (isWorthyClicked = true) {
-      alert('Worthy')
-    };
-  });
-
-  answerThor.on('click', function() {
-    var radioValue = answerThor.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerThor.off();
-    };
-
-    if (isThorClicked = true) {
-      alert('Thor')
-    };
-  });
-
-  answerTruTwo.on('click', function() {
-    var radioValue = answerTruTwo.val();
-    if (radioValue) {
-      isTruTwoClicked = true;
-      incorrectAnswers++;
-      answerTruTwo.off();
-    };
-
-    if (isTruTwoClicked = true) {
-      alert('True 2')
-    };
-  });
-
-  answerFalsTwo.on('click', function() {
-    var radioValue = answerFalsTwo.val();
-    if (radioValue) {
-      isFalseTwoClicked = true;
-      correctAnswers++;
-      answerFalsTwo.off();
-    }
-
-    if (isFalseTwoClicked = true) {
-      alert('False2')
-    };
-  });
-
-  answerTruThree.on('click', function() {
-    var radioValue = answerTruThree.val();
-    if (radioValue) {
-      isTruThreeClicked = true;
-      correctAnswers++;
-      answerTruThree.off();
-    };
-
-    if (isTruThreeClicked = true) {
-      alert('True3')
-    };
-  });
-
-  answerFalsThree.on('click', function() {
-    var radioValue = answerFalsThree.val();
-    if (radioValue) {
-      isFalseThreeClicked = true;
-      incorrectAnswers++;
-      answerFalsThree.off();
-    };
-
-    if (isFalseThreeClicked = true) {
-      alert('False3')
-    };
-  });
-
-  answerTruFour.on('click', function() {
-    var radioValue = answerTruFour.val();
-    if (radioValue) {
-      isTruTwoClicked = true;
-      incorrectAnswers++;
-      answerTruFour.off();
-    };
-
-    if (isTruFourClicked = true) {
-      alert('True4')
-    };
-  });
-
-  answerFalsFour.on('click', function() {
-    var radioValue = answerFalsFour.val();
-    if (radioValue) {
-      isFalseFourClicked = true;
-      correctAnswers++;
-      answerFalsFour.off();
-    };
-
-    if (isFalseFourClicked = true) {
-      alert('False4')
-    };
-  });
-
-  answerTruFive.on('click', function() {
-    var radioValue = answerTruFive.val();
-    if (radioValue) {
-      isTruFiveClicked = true;
-      correctAnswers++;
-      answerTruFive.off();
-    };
-
-    if (isTruFiveClicked = true) {
-      alert('True5')
-    };
-  });
-
-  answerFalsFive.on('click', function() {
-    var radioValue = answerFalsFive.val();
-    if (radioValue) {
-      isFalseFiveClicked = true;
-      incorrectAnswers++;
-      answerFalsFive.off();
-    };
-
-    if (isFalseFiveClicked = true) {
-      alert('False5')
-    };
-  });
-
-  answerTwentyThree.on('click', function() {
-    var radioValue = answerTwentyThree.val();
-    if (radioValue) {
-      isTwentyThreeClicked = true;
-      correctAnswers++;
-      answerTwentyThree.off();
-    };
-
-    if (isTwentyThreeClicked = true) {
-      alert('23')
-    };
-  });
-
-  answerTwentyOne.on('click', function() {
-    var radioValue = answerTwentyOne.val();
-    if (radioValue) {
-      isTwentyOneClicked = true;
-      incorrectAnswers++;
-      answerTwentyOne.off();
-    };
-
-    if (isTwentyThreeClicked = true) {
-      alert('21')
-    };
-  });
-
-  answerFourteen.on('click', function() {
-    var radioValue = answerFourteen.val();
-    if (radioValue) {
-      isFourteenClicked = true;
-      incorrectAnswers++;
-      answerFourteen.off();
-    };
-
-    if (isFourteenClicked = true) {
-      alert('14')
-    };
-  });
-
-  answerTwentyFive.on('click', function() {
-    var radioValue = answerTwentyFive.val();
-    if (radioValue) {
-      isTwentyFiveClicked = true;
-      incorrectAnswers++;
-      answerTwentyFive.off();
-    };
-
-    if (isTwentyFiveClicked = true) {
-      alert('25')
-    };
-  });
 
   function seeScore() {
     $('#incorrect-answers').text(incorrectAnswers);
