@@ -2,7 +2,9 @@ $(document).ready(function() {
   var wiggly;
   var timeRemaining = 12;
   var correctAnswers = 0;
+  // var correctAnswersDisplay = $('#correct-answers');
   var incorrectAnswers = 0;
+  // var inCorrectAnswersDisplay = $('#incorrect-answers');
   var unAnswered = 0;
   var gameOver = 'GAME OVER'
   var isGameRunning = false;
@@ -63,7 +65,6 @@ $(document).ready(function() {
   function start() {
     radioButtonReset.prop("checked", false);
     isGameRunning = true;
-    startQuiz();
     startOnlyOnce();
     wiggly = setInterval(function() {
       var converted = clockFormatter(timeRemaining);
@@ -81,11 +82,6 @@ $(document).ready(function() {
     if (isGameRunning = true) {
       $('#start-game').off()
     }
-  }
-
-  function startQuiz() {
-    $('#incorrect-answers').text(incorrectAnswers);
-    $('#correct-answers').text(correctAnswers)
   }
 
   var isRadioRyanClicked = false;
@@ -315,25 +311,36 @@ $(document).ready(function() {
     };
   });
 
+  var isTruFiveClicked = false;
+  var isFalseFiveClicked = false;
 
-  answerTruFive.on('click', truFive);
-  answerFalsFive.on('click', falsFive);
-
-  function truFive() {
+  answerTruFive.on('click', function() {
     var radioValue = answerTruFive.val();
     if (radioValue) {
+      isTruFiveClicked = true;
       correctAnswers++;
       answerTruFive.off();
-    }
-  };
+    };
 
-  function falsFive() {
+    if (isTruFiveClicked = true) {
+      alert('True5')
+    };
+  });
+
+  answerFalsFive.on('click', function() {
     var radioValue = answerFalsFive.val();
     if (radioValue) {
+      isFalseFiveClicked = true;
       incorrectAnswers++;
       answerFalsFive.off();
-    }
-  };
+    };
+
+    if (isFalseFiveClicked = true) {
+      alert('False5')
+    };
+  });
+
+
 
   answerTwentyThree.on('click', twentyThree);
   answerTwentyOne.on('click', twentyOne);

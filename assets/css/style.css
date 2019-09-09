@@ -16,7 +16,6 @@ body {
   margin-top: 10px;
   width: 100%;
   font-family: cursive;
-  /* opacity: 2.2; */
 }
 
 .welcome {
@@ -25,40 +24,28 @@ body {
   font-size: 24px;
   font-family: cursive;
   color: black;
-  /* position: fixed; */
 }
 
 .timer-button-container {
-  /* position: fixed; */
-  /* margin: auto; */
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
   width: 300px;
-  /* position: fixed; */
   font-family: cursive;
-  /* text-align: center; */
 }
 
 #time-remaining {
-  /* text-align: center; */
   color: black;
-  /* margin: auto; */
   font-size: 20px;
   width: 300px;
-  /* position: relative; */
   font-family: cursive;
 }
 
 #countdown-clock {
-  /* text-align: center; */
   color: black;
   font-size: 36px;
   width: 300px;
   margin-left: 30px;
-  /* margin: auto; */
-  /* float: right; */
-  /* position: relative; */
   font-family: cursive;
 }
 
@@ -70,23 +57,17 @@ form {
 }
 
 .radio-buttons {
-  /* text-align: center; */
-  /* display: none; */
   color: black;
   margin: auto;
 }
 
 .score-board {
-  /* text-align: center; */
   color: black;
   font-size: 20px;
   font-family: cursive;
   width: 400px;
   margin: auto;
   margin-left: 10px;
-  /* position: fixed; */
-  /* display: none; */
-  /* float: left; */
 }
 
 .clearfix::after {
