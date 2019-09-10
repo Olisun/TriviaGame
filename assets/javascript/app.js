@@ -1,6 +1,6 @@
 // Declaring global variables
 var wiggly;
-var timeRemaining = 10;
+var timeRemaining = 70;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unAnswered = 0;
