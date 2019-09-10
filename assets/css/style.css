@@ -30,7 +30,9 @@ body {
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
-  width: 300px;
+  padding-left: 10px;
+  width: 170px;
+  background: yellow;
   font-family: cursive;
 }
 
@@ -100,7 +102,7 @@ main {
 #correct-answers {
   float: left;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 10px;
   font-family: cursive;
 }
 
@@ -113,7 +115,7 @@ main {
 #incorrect-answers {
   float: left;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 10px;
   font-family: cursive;
 }
 
@@ -126,6 +128,7 @@ main {
 #unanswered {
   float: left;
   text-align: center;
+  margin-left: 10px;
   font-family: cursive;
 }
 
