@@ -1,12 +1,15 @@
 // Declaring global variables
 var wiggly;
-var timeRemaining = 70;
+var timeRemaining = 10;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unAnswered = 0;
 var gameOver = 'GAME OVER'
 var scoreBoard = $('.score-board');
 var timeClock = $('.timer-button-container');
+var gameOver = $('.game-over');
+var radioForm = $("form");
+var scores = $('.score-board');
 
 // Hiding the button contecting the checkAnswers function b/c it's in the form element in the HTML file.
 $('#button').hide();
@@ -58,6 +61,9 @@ function startOnlyOnce() {
 // This function calls on the checkAnswers function to calculate and compare all the scores. It also stops the clock.
 function seeScore() {
   isGameRunning = false;
+  gameOver.css("display", "block")
+  radioForm.css("display", "none")
+  scores.css("background", "yellow")
   checkAnswers();
   clearInterval(wiggly);
 }

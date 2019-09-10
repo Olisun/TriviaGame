@@ -15,6 +15,16 @@ header {
   position: fixed;
 }
 
+.game-over {
+  text-align: center;
+  color: red;
+  background-color: yellow;
+  margin-right: 400px;
+  width: 1000px;
+  font-size: 28px;
+  display: none;
+}
+
 .main-container {
   margin: 0 auto;
   margin-top: 10px;
@@ -60,6 +70,7 @@ form {
   font-size: 16px;
   font-family: cursive;
   background: azure;
+  display: block;
 }
 
 .radio-buttons {
@@ -71,7 +82,7 @@ form {
   color: black;
   font-size: 20px;
   font-family: cursive;
-  width: 400px;
+  width: 240px;
   margin: auto;
   margin-left: 10px;
 }
