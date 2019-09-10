@@ -1,338 +1,158 @@
-$(document).ready(function() {
-  var wiggly;
-  var timeRemaining = 12;
+// Declaring global variables
+var wiggly;
+var timeRemaining = 70;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var unAnswered = 0;
+var gameOver = 'GAME OVER'
+var scoreBoard = $('.score-board');
+var timeClock = $('.timer-button-container');
+
+// Hiding the button contecting the checkAnswers function b/c it's in the form element in the HTML file.
+$('#button').hide();
+
+// These fire off the functions when the start game and see score buttons are clicked.
+$('#start-game').on('click', start);
+$('#see-score').on('click', seeScore);
+$('#reset-score').on('click', resetScore);
+
+// Function for the timer and the conversion to 00:00 format. 
+function clockFormatter(numToConvert) {
+  var minutes = Math.floor(numToConvert / 60);
+  var seconds = numToConvert - (minutes * 60);
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  if (minutes === 0) {
+    minutes = "00";
+  } else if (minutes < 10) {
+    minutes = "0" + minutes;
+  } else if (minutes >= 10) {
+    minutes = "00" + minutes
+  };
+  return minutes + ":" + seconds;
+}
+
+// This function starts the timer to countdown. wiggly is te nickname for my Laberador Retriever Taylor. If time runs out, the seeScore function is called and the clock stops at zero.
+function start() {
+  startOnlyOnce();
+  wiggly = setInterval(function() {
+    var converted = clockFormatter(timeRemaining);
+    $('#countdown-clock').text(converted)
+    timeRemaining--;
+    if (timeRemaining < 0) {
+      clearInterval(wiggly)
+      seeScore();
+      timeRemaining = 12;
+    }
+  }, 1000 * 1)
+}
+
+// This function makes it so that the start button can only be clicked once. I saw a bug if yopu double clicked the start button, the time count down doubles in speed.
+function startOnlyOnce() {
+  if (isGameRunning = true) {
+    $('#start-game').off()
+  }
+}
+
+// This function calls on the checkAnswers function to calculate and compare all the scores. It also stops the clock.
+function seeScore() {
+  isGameRunning = false;
+  checkAnswers();
+  clearInterval(wiggly);
+}
+
+function resetScore() {
+  location.reload(true);
+};
+
+// I used plain vanilla js for this. I couldn't come up with a way until just now (Monday night) to accurately account for the score if the user clicked one answer but then decided to change their mind. Even with the .off method in JQ, the button checked was counted. I found answers on W3Schools and used the form format with radio buttons. I put the actual button onclick call in the form section under the last input type. 
+
+// I also refactored all the question logic. Originally, I tied everything to a radio button click. With this, I managed to tie the events to the name class in the form input field. This allows me to write conditions for eac question as oppsed to every radio button.
+function checkAnswers() {
+  // These are local variables for this function
+  var question1 = document.avengersQuiz.question1.value;
+  var question2 = document.avengersQuiz.question2.value;
+  var question3 = document.avengersQuiz.question3.value;
+  var question4 = document.avengersQuiz.question4.value;
+  var question5 = document.avengersQuiz.question5.value;
+  var question6 = document.avengersQuiz.question6.value;
+  var question7 = document.avengersQuiz.question7.value;
+  var question8 = document.avengersQuiz.question8.value;
+  var numberGuessedRight = document.getElementById('correct-answers');
+  var numberGuessedWrong = document.getElementById('incorrect-answers');
+  var numberUnAnswered = document.getElementById('unanswered');
   var correctAnswers = 0;
-  var incorrectAnswers = 0;
+  var inCorrectAnswers = 0;
   var unAnswered = 0;
-  var gameOver = 'GAME OVER'
-  var isGameRunning = false;
-  var radioButtonReset = $("input[type='radio']");
-  var scoreBoard = $('.score-board');
-  var timeClock = $('.timer-button-container');
-  // var audio = $('#theme-music');
 
-  var answerRyanG = $("input[value='ryan-gosling']");
-
-  var answerSebastianS = $("input[value='sebastian-stan']");
-  var answerSebastianB = $("input[value='sebastian-bach']");
-  var answerSteveB = $("input[value='steve-buscemi']");
-
-  var answerTruOne = $("input[value='truone']");
-  var answerFalsOne = $("input[value='falsone']");
-
-  var answerMighty = $("input[value='mighty']");
-  var answerSuperH = $("input[value='superhuman']");
-  var answerWorthy = $("input[value='worthy']");
-  var answerThor = $("input[value='thor']");
-
-  var answerTruTwo = $("input[value='truTwo']");
-  var answerFalsTwo = $("input[value='falsTwo']");
-
-  var answerTwentyThree = $("input[value='23']");
-  var answerTwentyOne = $("input[value='21']");
-  var answerFourteen = $("input[value='14']");
-  var answerTwentyFive = $("input[value='25']");
-
-  var answerTruThree = $("input[value='truThree']");
-  var answerFalsThree = $("input[value='falsThree']");
-
-  var answerTruFour = $("input[value='truFour']");
-  var answerFalsFour = $("input[value='falsFour']");
-
-  var answerTruFive = $("input[value='truFive']");
-  var answerFalsFive = $("input[value='falsFive']");
-
-  scoreBoard.css("display", "none");
-  timeClock.css("display", "none");
-  // audio.play();
-
-  $('#start-game').on('click', start);
-  $('#see-score').on('click', seeScore);
-
-  function clockFormatter(numToConvert) {
-    var minutes = Math.floor(numToConvert / 60);
-    var seconds = numToConvert - (minutes * 60);
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-    if (minutes === 0) {
-      minutes = "00";
-    } else if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    return minutes + ":" + seconds;
+  // The last else if statement in each contition is from jQuery that I found in the jQuery API docs.
+  if (question1 == "sebastian-stan") {
+    correctAnswers++;
+  } else if (question1 == "ryan-gosling" || question1 == "sebastian-bach" || question1 == "steve-buscemi") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question1']:checked").val())) {
+    unAnswered++
   }
 
-  function start() {
-    radioButtonReset.prop("checked", false);
-    isGameRunning = true;
-    startQuiz();
-    startOnlyOnce();
-    wiggly = setInterval(function() {
-      var converted = clockFormatter(timeRemaining);
-      $('#countdown-clock').text(converted)
-      timeRemaining--;
-      if (timeRemaining === 0) {
-        clearInterval(wiggly)
-        seeScore();
-        timeRemaining = 12;
-        scoreBoard.css("display", "block");
-        timeClock.css("display", "none");
-      }
-    }, 1000 * 1)
+  if (question2 == "falsone") {
+    correctAnswers++;
+  } else if (question2 == "truone") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question2']:checked").val())) {
+    unAnswered++
   }
 
-  function startOnlyOnce() {
-    if (isGameRunning = true) {
-      $('#start-game').off()
-    }
+  if (question3 == "worthy") {
+    correctAnswers++;
+  } else if (question3 == "mighty" || question3 == "superhuman" || question3 == "thor") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question3']:checked").val())) {
+    unAnswered++
   }
 
-  function startQuiz() {
-    correctAnswers = 0;
-    incorrectAnswers = 0;
-    timeRemaining = 12;
-    timeClock.css("display", "block");
-    $('#incorrect-answers').text(incorrectAnswers);
-    $('#correct-answers').text(correctAnswers);
+  if (question4 == "falsTwo") {
+    correctAnswers++;
+  } else if (question4 == "truTwo") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question4']:checked").val())) {
+    unAnswered++
   }
 
-  answerRyanG.on('click', ryanG);
-  answerSebastianS.on('click', sebastianS);
-  answerSebastianB.on('click', sebastianB);
-  answerSteveB.on('click', steveB);
-
-  answerTruOne.on('click', truOne);
-  answerFalsOne.on('click', falsOne);
-
-  answerMighty.on('click', mighty);
-  answerSuperH.on('click', superH);
-  answerWorthy.on('click', worthy);
-  answerThor.on('click', thor);
-
-  answerTruTwo.on('click', truTwo);
-  answerfalseTwo.on('click', falseTwo);
-
-  answerTwentyThree.on('click', twentyThree);
-  answerTwentyOne.on('click', twentyOne);
-  answerFourteen.on('click', fourteen);
-  answerTwentyFive.on('click', twentyFive);
-
-  answerTruThree.on('click', truThree);
-  answerFalsThree.on('click', falsThree);
-
-  answerTruFour.on('click', truFour);
-  answerFalsFour.on('click', falsFour);
-
-  answerTruFive.on('click', truFive);
-  answerFalsFive.on('click', falsFive);
-
-
-  function ryanG() {
-    var radioValue = answerRyanG.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerRyanG.off();
-    }
-  };
-
-  function sebastianS() {
-    var radioValue = answerSebastianS.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerSebastianS.off();
-    }
-  };
-
-  function sebastianB() {
-    var radioValue = answerSebastianB.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerSebastianB.off();
-    }
-  };
-
-  function steveB() {
-    var radioValue = answerSteveB.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerSteveB.off();
-    }
-  };
-
-  var isAnswerTrueOneClicked = false;
-
-
-
-
-  function truOne() {
-    var radioValue = answerTruOne.val();
-    isAnswerTrueOneClicked = true;
-    if (radioValue) {
-      incorrectAnswers++;
-      answerTruOne.off();
-    }
-  };
-
-  answerFalsOne.on('click', function() {
-    var radioValue = answerFalsOne.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerFalsOne.off();
-    }
-    // } else if (radioValue || isAnswerTrueOneClicked == true) {
-    //   correctAnswers++;
-    //   incorrectAnswers--;
-    //   answerFalsOne.off();
-    // } else if (isAnswerTrueOneClicked == true) {
-    //   alert('true')
-    // }
-  });
-
-  function mighty() {
-    var radioValue = answerMighty.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerMighty.off();
-    }
-  };
-
-  function superH() {
-    var radioValue = answerSuperH.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerSuperH.off();
-    }
-  };
-
-  function worthy() {
-    var radioValue = answerWorthy.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerWorthy.off();
-    }
-  };
-
-  function thor() {
-    var radioValue = answerThor.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerThor.off();
-    }
-  };
-
-  function truTwo() {
-    var radioValue = answerTruTwo.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerTruTwo.off();
-    }
-  };
-
-  function falsTwo() {
-    var radioValue = answerFalsTwo.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerFalsTwo.off();
-    }
-  };
-
-  function truThree() {
-    var radioValue = answerTruThree.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerTruThree.off();
-    }
-  };
-
-  function falsThree() {
-    var radioValue = answerFalsThree.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerFalsThree.off();
-    }
-  };
-
-  function truFour() {
-    var radioValue = answerTruFour.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerTruFour.off();
-    }
-  };
-
-  function falsFour() {
-    var radioValue = answerFalsFour.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerFalsFour.off();
-    }
-  };
-
-  function truFive() {
-    var radioValue = answerTruFive.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerTruFive.off();
-    }
-  };
-
-  function falsFive() {
-    var radioValue = answerFalsFive.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerFalsFive.off();
-    }
-  };
-  // -----
-  function twentyThree() {
-    var radioValue = answerTwentyThree.val();
-    if (radioValue) {
-      correctAnswers++;
-      answerTwentyThree.off();
-    }
-  };
-
-  function twentyOne() {
-    var radioValue = answerTwentyOne.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerTwentyOne.off();
-    }
-  };
-
-  function fourteen() {
-    var radioValue = answerFourteen.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerFourteen.off();
-    }
-  };
-
-  function twentyFive() {
-    var radioValue = answerTwentyFive.val();
-    if (radioValue) {
-      incorrectAnswers++;
-      answerTwentyFive.off();
-    }
-  };
-
-
-  function seeScore() {
-    $('#incorrect-answers').text(incorrectAnswers);
-    $('#correct-answers').text(correctAnswers);
-    isGameRunning = false;
-    scoreBoard.css("display", "block");
-    timeClock.css("display", "none");
-    clearInterval(wiggly);
+  if (question5 == "23") {
+    correctAnswers++;
+  } else if (question5 == "21" || question5 == "14" || question5 == "25") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question5']:checked").val())) {
+    unAnswered++
   }
 
-  function reStart() {
-    if (isGameRunning = false) {
-      $('#start-game').on('click', start);
-    }
+  if (question6 == "truThree") {
+    correctAnswers++;
+  } else if (question6 == "falsThree") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question6']:checked").val())) {
+    unAnswered++
   }
 
-  reStart();
+  if (question7 == "falsFour") {
+    correctAnswers++
+  } else if (question7 == "truFour") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question7']:checked").val())) {
+    unAnswered++
+  }
 
-});
+  if (question8 == "falsFive") {
+    correctAnswers++
+  } else if (question8 == "truFive") {
+    inCorrectAnswers++;
+  } else if ((!$("input[name='question8']:checked").val())) {
+    unAnswered++
+  }
+
+  // This fills the scoreboard with the score totals.
+  numberGuessedRight.innerText = correctAnswers;
+  numberGuessedWrong.innerHTML = inCorrectAnswers;
+  numberUnAnswered.innerText = unAnswered;
+}

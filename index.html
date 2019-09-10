@@ -11,13 +11,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- my CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 </head>
 
 <body>
 
+  <header>
+    <img src="assets/images/avengerslogo.png" alt="">
+  </header>
   <div class="main-container">
     <div class="clearfix">
       <aside>
@@ -25,8 +27,10 @@
           <p>Welcome to Avengers Trivia!</p>
           <ol>
             <li>Answer as many questions as you can in the alotted time</li>
+            <li>Click the "Start" button to start the game.</li>
             <li>When the clock runs out, you will see your score.</li>
-            <li>If you fimnish before time expires and want to see your score, click See Score</li>
+            <li>If you finish before time expires and want to see your score, click "See Score".</li>
+            <li>To play again, click "Reset" and then the "Start" button.</li>
             <li>Good Luck!</li>
           </ol>
         </div>
@@ -51,7 +55,7 @@
 
         <button id="start-game">Start Quiz</button>
         <button id="see-score">See Score</button>
-        <button id="restart">Re-Start</button>
+        <button id="reset-score">Reset Score</button>
       </aside>
       <main>
         <div class="radio-buttons">
@@ -94,7 +98,6 @@
             <input type="radio" name="question8" value="truFive"> True<br>
             <input type="radio" name="question8" value="falsFive"> False<br>
 
-
             <input id="button" type="button" value="done" onclick="checkAnswers();">
             <div id="log"></div>
 
@@ -105,15 +108,8 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
   <!-- my JavaScript -->
-  <script type="text/javascript " src="assets/javascript/appTest.js "></script>
+  <script type="text/javascript " src="assets/javascript/app.js "></script>
 </body>
 
 

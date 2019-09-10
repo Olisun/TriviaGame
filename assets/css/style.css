@@ -1,14 +1,18 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  /* background-image: url(../images/endgame.jpg); */
   height: 100%;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+img {
+  height: 150px;
+}
+
+header {
+  width: 150px;
+  position: fixed;
 }
 
 .main-container {
@@ -65,7 +69,7 @@ form {
 
 .score-board {
   color: black;
-  font-size: 16px;
+  font-size: 20px;
   font-family: cursive;
   width: 400px;
   margin: auto;
@@ -79,12 +83,12 @@ form {
 }
 
 aside {
+  margin-top: 150px;
   float: left;
   width: 400px;
   height: 100%;
   font-family: cursive;
   position: fixed;
-  /* background: azure; */
 }
 
 main {
@@ -149,7 +153,7 @@ main {
   position: fixed;
 }
 
-#restart {
+#reset-score {
   margin-left: 188px;
   margin-top: 10px;
   font-family: cursive;
