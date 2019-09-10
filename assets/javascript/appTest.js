@@ -15,6 +15,7 @@ $('#button').hide();
 // These fire off the functions when the start game and see score buttons are clicked.
 $('#start-game').on('click', start);
 $('#see-score').on('click', seeScore);
+$('#restart').on('click', reStart);
 
 // Function for the timer and the conversion to 00:00 format.
 function clockFormatter(numToConvert) {
@@ -34,6 +35,7 @@ function clockFormatter(numToConvert) {
 // This function starts the timer to countdown. wiggly is te nickname for my Laberador Retriever Taylor. If time runs out, the seeScore function is called and the clock stops at zero.
 function start() {
   isGameRunning = true;
+  // location.reload(true);
   startOnlyOnce();
   wiggly = setInterval(function() {
     var converted = clockFormatter(timeRemaining);
@@ -61,15 +63,14 @@ function seeScore() {
   clearInterval(wiggly);
 }
 
-function reStart() {
-  if (isGameRunning = false) {
-    $('#start-game').on('click', start);
-  }
-}
+// function reStart() {
+//   location.reload(true);
+//   alert('button clicked')
+// };
 
-reStart();
 
-// I used plain vanilla js for this after researching my bleep off. I couldn't come up with a way to accurately account for the score if the user clicked one answer but then decided to change their mind. Even with the .off method in JQ, the button checked was counted. I found answers on W3Schools and used the form format with radio buttons. I put the actual button onclick call in the form section under the last input type. 
+
+// I used plain vanilla js for this. I couldn't come up with a way until just now (Monday night) to accurately account for the score if the user clicked one answer but then decided to change their mind. Even with the .off method in JQ, the button checked was counted. I found answers on W3Schools and used the form format with radio buttons. I put the actual button onclick call in the form section under the last input type. 
 
 // I also refactored all the question logic. Originally, I tied everything to a radio button click. With this, I managed to tie the events to the name class in the form input field. This allows me to write conditions for eac question as oppsed to every radio button.
 function checkAnswers() {
@@ -89,7 +90,7 @@ function checkAnswers() {
   var inCorrectAnswers = 0;
   var unAnswered = 0;
 
-  // The last else if statement in each contition is from jQuery that I found in the jQuery API docs just a few minutes ago (it's 9:00 Monday night!)
+  // The last else if statement in each contition is from jQuery that I found in the jQuery API docs.
   if (question1 == "sebastian-stan") {
     correctAnswers++;
   } else if (question1 == "ryan-gosling" || question1 == "sebastian-bach" || question1 == "steve-buscemi") {

@@ -142,7 +142,15 @@ main {
 }
 
 #see-score {
-  margin-left: 110px;
+  margin-left: 105px;
+  margin-top: 10px;
+  font-family: cursive;
+  background-color: white;
+  position: fixed;
+}
+
+#restart {
+  margin-left: 188px;
   margin-top: 10px;
   font-family: cursive;
   background-color: white;
