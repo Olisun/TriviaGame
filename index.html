@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <audio id="theme-music" src="homework/TriviaGame/assets/audio/avengers.mp3"></audio>
+
   <div class="main-container">
     <div class="clearfix">
       <aside>
@@ -48,49 +48,55 @@
             <div id="unanswered"></div>
           </div>
         </div>
+
         <button id="start-game">Start Quiz</button>
         <button id="see-score">See Score</button>
       </aside>
       <main>
         <div class="radio-buttons">
-          <form>
-            <p>Who plays the Winter Soldier in Captain America?:</p>
+          <form id="avengersQuiz" name="avengersQuiz">
+            <p class="questions">Who plays the Winter Soldier in Captain America?:</p>
             <input type="radio" name="question1" value="ryan-gosling"> Ryan Gosling<br>
             <input type="radio" name="question1" value="sebastian-stan"> Sebastian Stan<br>
             <input type="radio" name="question1" value="sebastian-bach"> Sebastian Bach<br>
             <input type="radio" name="question1" value="steve-buscemi"> Steve Buscemi<br>
             <br>
-            <p>True or false: The Scarlet Witch's name is Wanda Maximus?</p>
+            <p class="questions">True or false: The Scarlet Witch's name is Wanda Maximus?</p>
             <input type="radio" name="question2" value="truone"> True<br>
             <input type="radio" name="question2" value="falsone"> False<br>
             <br>
-            <p>In order to lift Thor's hammer, you have to be:</p>
+            <p class="questions">In order to lift Thor's hammer, you have to be:</p>
             <input type="radio" name="question3" value="mighty"> Mighty<br>
             <input type="radio" name="question3" value="superhuman"> Superhuman<br>
             <input type="radio" name="question3" value="worthy"> Worthy<br>
             <input type="radio" name="question3" value="thor"> Thor<br>
             <br>
-            <p>True or false: Captain America's Shield is made out of Adamantium</p>
+            <p class="questions">True or false: Captain America's Shield is made out of Adamantium</p>
             <input type="radio" name="question4" value="truTwo"> True<br>
             <input type="radio" name="question4" value="falsTwo"> False<br>
             <br>
-            <p>How many movies are in the Infinity Sage to-date?:</p>
+            <p class="questions">How many movies are in the Infinity Sage to-date?:</p>
             <input type="radio" name="question5" value="23"> 23<br>
             <input type="radio" name="question5" value="21"> 21<br>
             <input type="radio" name="question5" value="14"> 14<br>
             <input type="radio" name="question5" value="25"> 25<br>
             <br>
-            <p>True or false: In the airport battle in Captain America Civil War, Spiderman and the Black Pather were on the same team:</p>
+            <p class="questions">True or false: In the airport battle in Captain America Civil War, Spiderman and the Black Pather were on the same team:</p>
             <input type="radio" name="question6" value="truThree"> True<br>
             <input type="radio" name="question6" value="falsThree"> False<br>
             <br>
-            <p>True or false: Don Cheadle played War Machine in all the Marvel Movies going back to the original Iron Man (2008).</p>
+            <p class="questions">True or false: Don Cheadle played War Machine in all the Marvel Movies going back to the original Iron Man (2008).</p>
             <input type="radio" name="question7" value="truFour"> True<br>
             <input type="radio" name="question7" value="falsFour"> False<br>
             <br>
-            <p>True or false: Avengers Endgame is the highest grossing film of all-time inflation adjusted.</p>
+            <p class="questions">True or false: Avengers Endgame is the highest grossing film of all-time inflation adjusted.</p>
             <input type="radio" name="question8" value="truFive"> True<br>
             <input type="radio" name="question8" value="falsFive"> False<br>
+
+
+            <input id="button" type="button" value="done" onclick="checkAnswers();">
+            <div id="log"></div>
+
             <br>
           </form>
         </div>

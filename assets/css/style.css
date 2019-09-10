@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url(../images/endgame.jpg);
+  /* background-image: url(../images/endgame.jpg); */
   height: 100%;
   background-position: center;
   background-attachment: fixed;
@@ -21,7 +21,7 @@ body {
 .welcome {
   margin-top: 10px;
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 20px;
   font-family: cursive;
   color: black;
 }
@@ -51,7 +51,7 @@ body {
 
 form {
   margin-top: 40px;
-  font-size: 20px;
+  font-size: 16px;
   font-family: cursive;
   background: azure;
 }
@@ -63,7 +63,7 @@ form {
 
 .score-board {
   color: black;
-  font-size: 20px;
+  font-size: 16px;
   font-family: cursive;
   width: 400px;
   margin: auto;
@@ -82,7 +82,7 @@ aside {
   height: 100%;
   font-family: cursive;
   position: fixed;
-  background: azure;
+  /* background: azure; */
 }
 
 main {
